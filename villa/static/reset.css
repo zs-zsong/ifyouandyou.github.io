@@ -1,0 +1,20 @@
+@charset "utf-8";
+html.hairlines *{border-width:.5px !important;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+body,header,footer,section,div,span,p,img,a,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,em,i,b,u,del,menu,nav,fieldset,legend,article,aside,details,figcaption,hgroup,pre,code,form,blockquote,th,td,tr,hr,table,img,figure,button,input,textarea{padding:0;margin:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0);font-family:Arial,"微软雅黑";}
+input,textarea{-webkit-user-select:auto !important;/*user-select:auto !important;-webkit-appearance:none;*/}
+:focus{outline:none;}
+img{vertical-align:middle;border:0 none;max-width:100%;}
+ul{list-style:none;}
+a{text-decoration:none;color:inherit;color: #333;}
+section{display:block;margin:0 auto;}
+header,footer{margin:0 auto;width:100%;}
+em,i{font-style:normal;}
+html,body{width:100%;height:100%;}
+button,input{border:0 none;}
+u{text-decoration:none;}
+ul, li, ol, p {list-style: none;}
+h4, h5, em {font-style: normal;font-weight: 400;}
+h3 {font-style: normal;font-weight:normal;}
+input[type="submit"],input[type="reset"],input[type="button"],input[type="password"],input[type="text"],button{-webkit-appearance:none;outline:none;}
+textarea{resize:none;overflow:hidden;}
