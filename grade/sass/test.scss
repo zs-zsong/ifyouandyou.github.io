@@ -1,0 +1,402 @@
+@function tovmin($rpx) {
+    @return #{$rpx * 100 / 750}vmin;
+}
+@mixin displayflex($x,$y) {
+    display: flex;
+    justify-content: $x;
+    align-items: $y;
+}
+@mixin setpos($t,$x,$y) {
+    position: $t;
+    left: tovmin($x);
+    top: tovmin($y);
+}
+@mixin setarea($w,$h) {
+    width: tovmin($w);
+    height: tovmin($h);
+}
+
+.vh{
+    position: absolute;
+    left: 0;
+    width: tovmin(5);
+    top: tovmin(186);
+  }
+
+//引用  @include displayflex;
+.wrap{
+    display: block;
+}
+/* topbar */
+.topbar {
+    width: 100%;
+    height: tovmin(96);
+    @include displayflex(space-around,center);
+    background-color: #fff;
+    @include setpos(absolute,0,0);
+
+    .item {
+        @include setarea(72,96);
+        position: relative;
+        @include displayflex(center,center);
+    }
+
+    .handle {
+        width: 100%;
+        height: 100%;
+        @include setpos(absolute,0,0);
+        z-index: 99;
+    }
+
+    .item image {
+        @include setarea(48,48);
+    }
+
+    .select {
+        @include setarea(261,72);
+        border: tovmin(1) solid #C4C8CC;
+        border-radius: tovmin(8);
+        box-sizing: border-box;
+        display: flex;
+        position: relative;
+        margin-right: tovmin(12);
+
+        .student_name {
+            width: tovmin(197);
+            height: 100%;
+
+            image {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        .select_icon {
+            width: tovmin(64);
+            height: 100%;
+            background-color: #C4C8CC;
+            @include displayflex(center,center);
+        }
+    }
+
+    .student_list {
+        width: 100%;
+        position: absolute;
+        top: tovmin(100);
+        max-height: calc(100vh - tovmin(110));
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index: 100;
+    }
+
+    .list_img {
+        width: 100%;
+        height: tovmin(72);
+
+        image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+}
+
+/* topbar float */
+.float_bar {
+    @include setarea(364, 90);
+    background-color: #fff;
+    @include displayflex(space-around, center);
+    @include setpos(absolute, 32, 124);
+    border-radius: tovmin(8);
+    z-index: 9;
+    &::after {
+        content: '';
+        display: inline-block;
+        @include setarea(22, 22);
+        @include setpos(absolute, 80, -10);
+        background-color: #fff;
+        transform: rotate(45deg);
+    }
+
+    .f_bar {
+        @include setarea(38, 40);
+
+        image {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+/* _box */
+._box {
+    width: 100%;
+    height: tovmin(700);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+
+    .pic {
+        width: 100%;
+        height: 100%;
+        @include displayflex(center, center);
+        position: relative;
+    }
+
+    .swiper-item {
+        @include setpos(absolute, 0, 0);
+        width: 100%;
+        height: 100%;
+        @include displayflex(center, center);
+    }
+
+    .swiper-active {
+        animation: rights 0.2s linear;
+    }
+
+    .swiper-actived {
+        animation: lefts 0.2s linear;
+    }
+}
+
+@keyframes lefts {
+    from {
+        transform: translateX(-100%)
+    }
+
+    to {
+        transform: translateX(0)
+    }
+}
+
+@keyframes rights {
+    from {
+        transform: translateX(100%)
+    }
+
+    to {
+        transform: translateX(0)
+    }
+}
+
+/* keybar 打分键盘 */
+.keybar {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    @include displayflex(center,center);
+    transition: height .3s;
+
+    .keycode {
+        width: tovmin(690);
+        /* height: tovmin(174); */
+        height: auto;
+        padding: tovmin(20);
+        flex: none;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: space-between;
+
+        .code {
+            @include setarea(90,90);
+            font-size: tovmin(34);
+            color: #1D2023;
+            font-weight: 500;
+            line-height: tovmin(90);
+            text-align: center;
+            position: relative;
+            margin: tovmin(4) tovmin(2);
+            flex: 0 0 auto;
+            border: tovmin(1) solid #D7DCE0;
+            box-sizing: border-box;
+            border-radius: tovmin(8);
+
+        }
+    }
+
+    .keycode_active {
+        background-color: #565E66;
+        color: #fff;
+        border-radius: tovmin(8);
+    }
+
+    .code image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .code-text {
+        width: 100%;
+        height: 100%;
+        @include setpos(absolute,0,0);
+        line-height: tovmin(90);
+        text-align: center;
+    }
+
+    .text_active {
+        color: #fff;
+    }
+
+    .bubble{
+        @include setarea(120,120);
+        @include setpos(absolute,-14,-140);
+        z-index: 10;
+        background-color: #565E66;
+        border-radius: tovmin(8);
+        &::after{
+            content: '';
+            display: inline-block;
+            @include setarea(22,22);
+            background-color: #565E66;
+            transform: rotate(45deg) translateX(-50%);
+            position: absolute;
+            left: 50%;
+            bottom: tovmin(-20);
+        }
+        image{
+            width: 100%;
+            height: 100%;
+        }
+        text{
+            font-size: tovmin(48);
+            color: #fff;
+            @include setpos(absolute,50%,50%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-55%);
+        }
+      }
+      .score{
+        width: tovmin(690);
+        height: auto;
+        @include setpos(absolute,30,-83);
+        display: flex;
+      }
+}
+
+/* retract */
+.retract {
+    width: tovmin(81);
+    height: tovmin(80);
+    position: relative;
+
+    image {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* score_bar */
+.score_bar {
+    @include setarea(64, 64);
+    box-sizing: border-box;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 600;
+    font-size: tovmin(36);
+    background-color: #33AAFF;
+    text-align: center;
+    line-height: tovmin(64);
+    margin-right: tovmin(10);
+
+    .wait_bar {
+        border: tovmin(1) solid #33AAFF;
+        background-color: #CAE4F7;
+    }
+
+    .dotted_bar {
+        border: tovmin(1) dashed #33AAFF;
+        background-color: transparent;
+    }
+}
+
+/* magnifier  放大图片按钮 */
+.magnifier {
+    @include setarea(112,112);
+    position: absolute;
+    right: tovmin(28);
+    bottom: tovmin(292);
+    z-index: 100;
+
+    image {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+}
+
+@media all and (orientation : portrait) {
+    //竖屏下的页面样式
+}
+.landscape {
+    display: flex;
+    align-items: stretch;
+}
+@media all and (orientation : landscape) {
+    //横屏下的页面样式
+    .topbar,._box,.keybar{
+        position: static;
+        height: 100%;
+    }
+    /* 横屏下  topbar */
+    .topbar {
+        flex-direction: column;
+        width: tovmin(96);
+        height: 100%;
+
+        .item {
+            margin: 0;
+            @include setarea(96, 96);
+            @include displayflex(center, center);
+
+            image {
+                @include setarea(48, 48);
+            }
+        }
+    }
+    /* 横屏下  _box */
+    ._box{
+        flex: 1;
+        transform: none;
+    }
+    /* 横屏下  keybar */
+    .keybar{
+        width: auto;
+        height: 100%;
+        right: 0;
+        .keycode{
+            width: auto;
+            height: tovmin(286);
+            flex-direction: column;
+            justify-content: flex-start;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .code{
+            flex-shrink: 0;
+            margin: tovmin(4);
+        }
+        .bubble{
+            @include setpos(absolute,-140,-14);
+            &::after {
+                left: auto;
+                right: tovmin(-20);
+                transform: rotate(45deg) translateY(50%);
+                bottom: 50%;
+            }
+          }
+    }
+    .magnifier {
+        right: auto;
+        bottom: auto;
+        top: 3.73333vmin;
+        left: 38.93333vmin;
+    }
+}
