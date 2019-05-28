@@ -1,0 +1,74 @@
+
+<view class="container">
+  <view class='warn-info' bindtap='feedBack'>
+    <image mode="scaleToFill"  src="/image/confirmMsg/info.png"/>
+    <view>试卷结构识别有误？点击立即反馈</view>
+  </view>
+  <view class="header-wrapper">
+    <view class="header border-bottom">
+      <text for="name" >考试名称</text>
+      <input id="name" maxlength="20" data-info="1" placeholder="请输入考试名称" value="{{examName}}" bindblur="modify" bindfocus="focusName"/>
+    </view>
+
+    <view class="header border-bottom">
+      <text for="name" >考试科目</text>
+      <input id="name" disabled maxlength="20" data-info="1" placeholder="请选择考试科目" value="{{subject=='未识别'?'未识别':array[index]}}" bindblur="modify" />
+      
+      <view class="section">
+        <picker style='width:50rpx;text-align:right;' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+           <image mode="scaleToFill"  src="/image/confirmMsg/down.png"/>
+        </picker>
+      </view>
+    </view>
+    
+    <view class='header-warn'>
+      <view class='top'>
+        <text for="name" >考试班级</text>
+        <input id="className" maxlength="20"  data-info="2" placeholder="请输入考试班级"  value="{{examClass}}"  bindblur="modify" bindfocus="focusClass"/>
+      </view>
+      <view class='warn'>建议同一班级命名一致,如：高中2015级6班</view>
+    </view>
+    
+    <view class='score-wrapper-item'>
+      <view class='left'>
+        <text>卷面总分</text>
+        <input value='{{totalScore}}'></input>
+        <image wx:if="{{anserTotle!=totalScore}}" mode="scaleToFill"  src="/image/confirmMsg/warn.png"/>
+      </view>
+      <view class='right'>
+        <text>小题分总计：</text>
+        <text>{{anserTotle}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='answer-wrapper'>
+    <view>题号</view>
+    <view>分值</view>
+  </view>
+  <treeAnswer model='{{ treeData }}' modelScore='{{ treeDataScore }}' bind:tapitem='tapItem' bindinputChange="inputChange"></treeAnswer>
+
+  <!-- <tree tree="{{tree}}"></tree> -->
+  <!-- <mytree model='{{ treeData }}' bind:tapitem='tapItem'></mytree> -->
+  
+  <view class="score-wrapper">
+    <view class="info">请务必确认识别的题号和分值结果与试卷一致！</view>
+    <view class="button" wx:if="{{treeData.childList.length>0}}" bindtap="jumpNext">下一步</view>
+    <view class="button disabled" wx:else>下一步</view>
+  </view>
+  
+
+  <view class='feedback-layer' hidden='{{showFeedBack}}' bindtap='feedCancle'></view>
+  <view class='feedback-wrapper' hidden='{{showFeedBack}}'>
+    <view class='feedback-success' hidden='{{showFeedSuccess}}'>反馈成功!</view>  
+    <view class='content' hidden='{{!showFeedSuccess}}'>
+      <view class='text'>反馈后您将不能对本次考试进行任何操作，是否确定反馈试卷结构识别错误？</view>
+      <view class='btn-wrapper'>
+        <view bindtap='feedCancle'>取消</view>
+        <view bindtap='feddSend'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<layer finish="{{finish}}"></layer>

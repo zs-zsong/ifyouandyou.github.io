@@ -1,0 +1,39 @@
+<!--pages/exam/confirmMsg/layer/layer.wxml-->
+<view class='wrapper' wx:if="{{showLayer}}">
+  <view class='content'>
+    <view class='top'>
+      <image  mode="scaleToFill"  src="/image/loading.gif"  ></image>
+      <view>正在进行试卷信息识别</view>
+      <view>预计等待时间3分钟，请稍候…</view>
+    </view>
+    <view class='bottom'>
+      <view class='item {{0<index?"active":""}}'>
+        <view class='item-child'>
+           基本信息 <image mode="scaleToFill"  src="/image/user_active.png"   wx:if="{{index>0}}" />
+          <view wx:else class='more'>...</view>
+        </view>
+        
+      </view>
+      <view class='item {{index>1?"active":""}}'>
+        <view class='item-child' >
+           分值结构 <image mode="scaleToFill"  src="/image/user_active.png"  wx:if="{{index>1}}" />
+          <view wx:else  class='more'>...</view>
+        </view>
+       
+      </view>
+      <view class='item {{index>2?"active":""}}'>
+        <view class='item-child' >
+           学生答卷 <image  mode="scaleToFill"  src="/image/user_active.png"  wx:if="{{index>2}}" />
+          <view wx:else  class='more'>...</view>
+        </view>
+      </view>
+      <view class='item {{index>3?"active":""}}'>
+        <view class='item-child'>
+           基本信息 <image mode="scaleToFill"  src="/image/user_active.png" wx:if="{{index>3}}" />
+           <view wx:else class='more'>...</view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>

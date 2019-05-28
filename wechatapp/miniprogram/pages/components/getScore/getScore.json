@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ff-canvas": "@antv/f2-canvas",
+    "student-list": "./studentList/studentList"
+   
+  }
+}

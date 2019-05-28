@@ -1,0 +1,19 @@
+<!--pages/school/school.wxml-->
+<view class='container'>
+  <view class='box'>
+    <view class='search'>
+      <input type='text' class='input' bindinput="inputChange" bindfocus="inputFocus" value="{{inputValue}}"/>
+      <view class='clear' wx:if="{{clearStatus}}" bindtap='removeInput'>
+        <image src='../../image/clear.png' />
+      </view>
+    </view>
+    <view class='content' wx:if="{{schoolList.length > 0}}">
+      <view class='options' bindtap='handleClick' wx:for="{{schoolList}}" wx:key="{{index}}" data-id="{{item.id}}" data-name="{{item.school_name}}" hover-class='hovers'>
+        <text class='tit'>{{item.school_name}}</text>
+      </view>
+    </view>
+    <view class='btn' bindtap='bindHandle'>
+      确定
+    </view>
+  </view>
+</view>

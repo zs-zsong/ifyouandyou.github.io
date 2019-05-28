@@ -1,0 +1,20 @@
+<!--pages/setRatio/setRatio.wxml-->
+<view class="set-ratio-wrapper" wx:if="{{isShow}}">
+    <view class="set-ratio">
+      <view class="title-layer">三率设置</view>
+      <view class="item">
+        <view>优秀：成绩高于总分的<input maxlength="3" bindinput="bindKeyInputOne" value="{{oneNum}}" placeholder="" />%</view>
+      </view>
+      <view class="item">
+        <view>及格：成绩高于总分的<input maxlength="3" bindinput="bindKeyInputTwo" value="{{twoNum}}" placeholder="" />%</view>
+      </view>
+      <view class="item">
+        <view>差生：成绩低于总分的<input maxlength="3" bindinput="bindKeyInputThree" value="{{threeNum}}" placeholder="" />%</view>
+      </view>
+      <view class="btn-wrapper">
+        <view bindtap="cancle">取消</view>
+        <view class="active" bindtap="setRatio">确定</view>
+      </view>
+    </view>
+    <view class="layer-ratio" bindtap="cancle"></view>
+  </view>

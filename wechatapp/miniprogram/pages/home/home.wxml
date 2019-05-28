@@ -1,0 +1,13 @@
+<!-- wx-charts 插件无法在组件内使用。通过slot传递下去 -->
+<!-- 成绩 -->
+<examGrade type="{{type}}" wx:if="{{type==1}}"></examGrade>
+
+<!-- 考试列表 -->
+<examManage bindmyevent="onMyManage" id="examManage" type="{{type}}" wx:if="{{type==2}}"/>  
+
+<!-- 用户中心 -->
+<user type="{{type}}" wx:if="{{type==3}}"></user>
+
+<footer id="footer" bindmyevent="onMyEvent"/>
+
+

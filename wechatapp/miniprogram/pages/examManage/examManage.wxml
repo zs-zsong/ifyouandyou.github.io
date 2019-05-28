@@ -1,0 +1,74 @@
+
+<!-- <gradeM />  -->
+
+<bindPhone wx:if="{{type==2}}" status="{{showBind}}" bindmyevent="onMyEvent"></bindPhone>
+<view wx:if="{{type == 2}}" class="examManage" >
+  <view class="tab">
+    <view class="tabb">
+      <view bindtap="changeTap" data-info='1' class="{{tap==1?'btn btn1 active1':'btn btn1'}}">进行中</view>
+      <view bindtap="changeTap" data-info='2' class="{{tap==2?'btn btn2 active2':'btn btn2'}}">已归档</view>
+    </view>
+
+    <view bindtap="show" wx:if="{{tap==1&&!isShow}}" class="end">
+      <image class='img_end' src='../../image/examImage/end.png'></image>
+      <view style='font-size:24rpx;padding-top:2rpx;'>归档</view>
+    </view>
+    <image wx:if="{{tap==2&&!isShow}}"  bindtap="recover" class="recover" src='../../image/examImage/recover.png'></image>
+    <image wx:if="{{tap==2&&!isShow}}" bindtap="del"  class="del" src='../../image/examImage/del.png'></image>
+    <view bindtap="abolish" wx:if="{{isShow}}" class="no">取消</view>
+    <view bindtap="confirm" wx:if="{{isShow}}" class="ok">确定</view>
+  </view>
+  <checkbox-group bindchange="onChange1">
+    <view wx:if="{{tap==1&&jData.length <= 0}}" class="no_test">没有可操作考试，请点击“+”按键创建考试</view>
+     <view wx:elif="{{tap==1&&jData.length > 0}}" class="list">
+        <view  wx:if="{{jData.length>0}}" wx:for="{{jData}}" wx:key="{{i}}" key="{{item}}" class="check_list">
+            <view wx:if="{{isShow}}" >
+              <checkbox color='#5CB3FF' value="{{item.examId}}" />
+            </view>
+            <view bindtap="goChuang" data-info="{{item}}"  class="{{item.status == 7?'item eitem':'item'}}">
+              <view  class="it">
+                <view class="id">ID: {{item.examId}}</view>
+                <view class="f e">
+                  <image class='icon' wx:if="{{item.status == 5}}" bindtap="del"   src='../../image/examImage/icon.png'></image>
+                  <image class='icon'  wx:if="{{item.status == 4}}" bindtap="del"   src='../../image/examImage/icon1.png'></image>
+                  <image class='icon' wx:if="{{item.status == 7}}" bindtap="del"   src='../../image/examImage/icon2.png'></image>
+                  {{
+                      item.status == 4?'已扫描':
+                           item.status == 5?'评卷中':
+                           item.status == 7?'已完成':''
+                  }}
+                </view> 
+              </view>
+              <view  class="chart">
+                <view wx:if="{{item.status != 4}}"  class="t1">{{item.exam_name}}</view>
+                <view wx:if="{{item.status != 4}}"  class="t2">
+                    {{(item.grade == item.class_name?item.class_name:item.grade+item.class_name) == null?'':(item.grade == item.class_name?item.class_name:item.grade+item.class_name)}}
+                </view> 
+                <view wx:if="{{item.status == 4}}" style='padding-bottom:20rpx;' class="no_id">试卷信息未确认</view> 
+              </view>
+            </view>
+        </view>
+     </view> 
+  </checkbox-group>
+
+  <checkbox-group bindchange="onChange">
+      <view  wx:if="{{tap==2}}" class="list">
+        <view  wx:for="{{oData}}" wx:key="{{i}}" class="check_list">
+            <view wx:if="{{isShow}}" >
+              <checkbox value="{{item.examId}}" />
+            </view>
+            <view class="item">
+              <view class="id1">ID: {{item.examId}}</view>
+              <view  class="chart">
+                <view class="t1">{{item.exam_name}}</view>
+                <view class="t2">
+                   {{(item.grade == item.class_name?item.class_name:item.grade+item.class_name) == null?'':(item.grade == item.class_name?item.class_name:item.grade+item.class_name) }}
+                </view>  
+              </view>
+            </view>
+        </view>
+      </view>
+  </checkbox-group>
+
+  <!-- <footer /> -->
+</view>

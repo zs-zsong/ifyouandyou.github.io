@@ -1,0 +1,26 @@
+/* pages/components/gradeM/gradeM.wxss */
+.gradeM{
+  background:rgba(29,32,35,1);
+  opacity:0.8;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 9999;
+  text-align: center;
+}
+.iconT{
+  height: 420rpx;
+  width: 460rpx;
+  margin:40rpx  auto 0 auto;
+  display:block;
+}
+.iconR{
+  height: 84rpx;
+  width: 243rpx;
+   margin-top: 30rpx;
+}
+.iconL{
+  height: 91rpx;
+  width: 245rpx;
+  margin: 30rpx 50rpx 0 0;
+}

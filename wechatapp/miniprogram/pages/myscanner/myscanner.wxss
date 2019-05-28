@@ -1,0 +1,59 @@
+/* pages/myscanner/myscanner.wxss */
+.container{
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  background-color: #EBF0F5;
+  -webkit-overflow-scrolling: touch;
+}
+.title{
+  width: 690rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #1D2023;
+  font-size: 34rpx;
+  font-weight: 600;
+  margin: 15rpx auto 0;
+}
+.list{
+  width: 690rpx;
+  height: 168rpx;
+  border-radius: 16rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 16rpx;
+}
+.list .icons{
+  width: 120rpx;
+  height: 120rpx;
+}
+.list .left{
+  display: flex;
+  align-items: center;
+  margin-left: 32rpx;
+}
+.left .tit{
+  font-size: 28rpx;
+  color: #1D2023;
+  margin-left:33rpx; 
+}
+.list .remove{
+  color:#FF6047;
+  font-size: 28rpx; 
+  margin-right: 37rpx;
+}
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.nones{
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #1D2023;
+}

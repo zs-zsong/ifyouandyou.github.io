@@ -1,0 +1,22 @@
+<!-- pages/components/mytree/mytree.wxml-->
+<view style='background-color: #fff;'>
+  <view wx:if="{{!model.zIndex}}" class='tree-item'>
+    <view class='left'>
+      <image wx:if="{{open&&isBranch}}" class='option-img' mode="scaleToFill" bindtap='toggle' src="/image/confirmMsg/flod.png"/>
+      <image wx:if="{{!open&&isBranch}}" class='option-img' mode="scaleToFill" bindtap='toggle' src="/image/confirmMsg/spread.png"/>
+
+      <text style='width:40rpx;height:40rpx;margin-right:16rpx;' wx:if="{{!isBranch}}"></text>
+      <input class='title'  data-info="3" data-item="{{model}}" bindblur="modify" value='{{model.question_num}}' maxlength="10" placeholder="" />
+    </view>
+
+    <view class='right'>
+      <input class='score' type="digit"  data-item="{{model}}" data-info="4" bindblur="modify" value='{{model.score}}' placeholder="" />
+
+      <image class='option-img-warn' wx:if="{{!model.score||model.score!=model.originScore}}" mode="scaleToFill"  src="/image/confirmMsg/warn.png"/>
+      <text style='width:26rpx;height:40rpx;'wx:else></text>
+    </view>
+  </view>
+  <view style='padding-left:50rpx;' class='{{!model.zIndex?"tree-wrapper":""}}' wx:if='{{ isBranch }}' hidden='{{ !open&&!model.zIndex}}'>
+    <tree-answer wx:for='{{ model.childList }}' wx:key='id' model='{{ item }}'></tree-answer>
+  </view>
+</view>

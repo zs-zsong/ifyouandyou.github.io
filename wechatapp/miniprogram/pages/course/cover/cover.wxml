@@ -1,0 +1,19 @@
+<view class='wrapper'>
+  <image src='/image/course/back.png' bindtap='back' id="backBtn" mode='scaleToFill'></image>
+  <view class='center'>
+    <view id='cover'>
+      <view id="title">{{exam.examName}}</view>
+      <view class='subject-wrapper'>
+        <view id="subjectName">{{exam.examSubject}}</view>评卷课件</view>
+      <view id='gradeAndTime'>{{exam.className}}  {{examTime}}</view>
+    </view>
+    <image id='nextBtn' bindtap='next' src='/image/course/next.png' mode='scaleToFill'></image>
+  </view>
+  <view id='footbar'>
+    <view class='tips'>请用电脑端浏览器打开网址：yuangaofen.com/tp 扫码即可投屏</view>
+    <view id='tpBtn' bindtap='scanCode'>
+      <image src='/image/course/icon.png' mode='scaleToFill'></image>
+      <text>扫码投屏</text>
+    </view>
+  </view>
+</view>

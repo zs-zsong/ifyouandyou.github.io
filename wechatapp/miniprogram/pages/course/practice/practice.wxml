@@ -1,0 +1,40 @@
+<image src='/image/course/back.png' bindtap='back' id="backBtn" mode='scaleToFill'></image>
+<view class='page'>
+  <view class='practice-wrapper'>
+      <!-- TAB -->
+      <view class='header'>
+        <view wx:for="{{practice}}" bindtap='changeIndex' data-index="{{index}}" wx:key="index" class="item {{practiceIndex == index?'active':''}}">练习{{index+1}}</view>
+      </view>
+      <view class='body'>
+        <view class='title' bindtap="toggleTitle"> 
+          <image src='/image/course/{{showTitle?"collapse":"expand"}}.png'></image> 
+          <text style='font-weight: bold'>题目来源：</text><text>{{practice[practiceIndex].source}}</text>
+        </view>
+        <view class='item' wx:if="{{showTitle}}">
+          <rich-text nodes="{{practice[practiceIndex].title}}"></rich-text>
+          <!-- <block wx:if="{{practice[practiceIndex].qtype=='选择题'}}"> -->
+            <rich-text nodes="{{practice[practiceIndex].optionA}}" wx:if="{{practice[practiceIndex].optionA}}"></rich-text>
+            <rich-text nodes="{{practice[practiceIndex].optionB}}" wx:if="{{practice[practiceIndex].optionB}}"></rich-text>
+            <rich-text nodes="{{practice[practiceIndex].optionC}}" wx:if="{{practice[practiceIndex].optionC}}"></rich-text>
+            <rich-text nodes="{{practice[practiceIndex].optionD}}"  wx:if="{{practice[practiceIndex].optionD}}"></rich-text>
+            <rich-text nodes="{{practice[practiceIndex].optionE}}"  wx:if="{{practice[practiceIndex].optionE}}"></rich-text>
+          <!-- </block> -->
+        </view>
+        <view class='title' bindtap='toggleAnswer'> 
+          <image src='/image/course/{{showAnswer?"collapse":"expand"}}.png'></image> 
+          <text style='font-weight: bold'>答案解析</text>
+        </view>
+        <view class='item' wx:if="{{showAnswer}}">
+          <view class='line'>
+            <view class='left'>答案</view>
+            <rich-text nodes="{{practice[practiceIndex].answer1}}" wx:if="{{practice[practiceIndex].answer1}}" ></rich-text>
+            <rich-text nodes="{{practice[practiceIndex].answer2}}" wx:if="{{practice[practiceIndex].answer2}}" ></rich-text>
+          </view>
+          <view class='line'>
+            <view class='left'>解析</view>
+            <rich-text nodes="{{practice[practiceIndex].parse}}"></rich-text>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

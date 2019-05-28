@@ -1,0 +1,115 @@
+/* pages/components/chooseRate/chooseRate.wxss */
+.container-column {
+  height: 200px;
+  width: 100%;
+} 
+.column-wrapper {
+  width: 690rpx;
+  margin: 0 auto 20rpx;
+  background-color: #fff;
+}
+.exam-info {
+  text-align: center;
+  color: #19191A;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.header {
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .btn{
+  transform: scale(.8,.8);
+  width: 17rpx;
+  height: 34rpx;
+}
+.header .select-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container {
+  padding: 46rpx 40rpx 42rpx 48rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.container .left{
+  flex: 1;
+}
+.container .right{
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(215,220,224,1);
+  border-radius:16rpx;
+  flex: 0 0 240rpx;
+}
+.container .right .text{
+  height: 87rpx;
+  line-height: 87rpx;
+  font-size:34rpx;
+  font-weight:bold;
+  color:rgba(29,32,35,1);
+  padding-left: 34rpx;
+  border-bottom: 1px solid rgba(215,220,224,1);
+}
+.container .right .item{
+  height: 87rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:  0 17rpx 0 19rpx;
+  box-sizing: border-box;
+}
+.container .right .active {
+  background:rgba(235,240,245,1);
+}
+.container .right .item view:nth-child(1){
+  font-size:28rpx;
+  color:rgba(29,32,35,1);
+}
+.container .right .item view:nth-child(2){
+  font-size:24rpx;
+  color:rgba(29,32,35,1);
+}
+
+.overview {
+  /* margin-top: 24rpx; */
+}
+.overview .title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 88rpx;
+    background:#F9FAFC;
+    font-size:34rpx;
+    font-weight:bold;
+    padding-left: 25rpx;
+    padding-right: 22rpx;
+    box-sizing: border-box;
+    color:rgba(29,32,35,1);
+    border-radius:16rpx 16rpx 0 0;
+}
+.overview .title image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 16rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .left image,.header .right image{
+  width:48rpx;
+  height:48rpx;
+}
+.header .left center{
+  font-size:34rpx;
+  color:rgba(29,32,35,1);
+}
+.header .right image {
+  transform: rotate(180deg);
+}

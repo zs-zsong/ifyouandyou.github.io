@@ -1,0 +1,6 @@
+<!--pages/components/gradeM/gradeM.wxml-->
+<view wx:if="{{isShow}}" class="gradeM">
+  <image class='iconT' src="../../../image/gradeM/iconT.png"></image>
+  <image class='iconL' bindtap='goto'  src="../../../image/gradeM/iconL.png"></image>
+  <image class='iconR' bindtap='close'   src="../../../image/gradeM/iconR.png"></image>
+</view>

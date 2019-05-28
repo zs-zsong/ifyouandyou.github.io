@@ -1,0 +1,27 @@
+<view class="crewF">
+  <view class='overview'>
+    <view class='title'>
+      <image mode="scaleToFill"  src="/image/cuotiji/fsdrs.png"></image>分段人数
+    </view>
+
+    <view class='set' bindtap='jumpSet'>
+      <image mode="scaleToFill"  src="/image/cuotiji/set.png"></image>设置
+    </view>
+  </view>
+
+  <view class='container' wx:if="{{scoreData.length>0}}">
+    <view class='title'>分段数</view>
+    <view class='item' wx:for="{{scoreData}}" wx:for-index="key"   wx:for-item="value">
+      <view class='info'>{{key}}</view>
+      <view class='bar-wrapper'>
+        <view class='prosess' style='width:{{value.length/maxLen*100}}%;'></view>
+        <text>{{value.length}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='empty' wx:if="{{scoreData.length==0}}">暂无数据</view>
+  <!-- <slot name="column"></slot> -->
+  <!-- <view class="container-column">
+    <ff-canvas id="column-dom-column" canvas-id="column-column" opts="{{ opts }}"></ff-canvas>
+  </view> -->
+</view>

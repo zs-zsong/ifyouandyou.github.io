@@ -1,0 +1,48 @@
+<!--pages/wrongTopic/studentReport/studentReport.wxml-->
+<view class='top'>
+  <view class='left'>
+    <view wx:if="{{disabled}}">{{studentInfo.studentName}}</view>
+    <input wx:if="{{!disabled}}"  bindblur="modify" value="{{studentInfo.studentName}}" auto-focus/>
+    <image mode="scaleToFill"  src="/image/edit.png" bindtap="changeName"/>
+  </view>
+  <view class='right' bindtap='checkBook'>
+    查看该生错题集 <image mode="scaleToFill"  src="/image/cuotiji/go.png"></image>
+  </view>
+</view>
+<view class='container'>
+  
+
+  <!-- gaikuang -->
+  <view class='overview'>
+    <view class='title'>
+      <image mode="scaleToFill"  src="/image/cuotiji/gk.png"></image>概况
+    </view>
+    <view class='content'>
+      <view class='item'>
+        <view>{{studentDeac.studentScore}}</view>
+        <view>学生得分</view>
+      </view>
+      <view class='item'>
+        <view>{{studentDeac.classAvg}}</view>
+        <view>班级平均分</view>
+      </view>
+      <view class='item'>
+        <view>{{studentDeac.beat}}%</view>
+        <view>击败率</view>
+      </view>
+      <view class='item'>
+        <image mode="scaleToFill"  src="/image/cuotiji/score_rank.png"></image>
+        <view class='icon'>最强王者</view>
+        <view>当前段位</view>
+      </view>
+    </view>
+  </view>
+
+  <knowladge-lost exam-id="{{examId}}" student-id="{{studentId}}"></knowladge-lost>
+  
+  <lose-difficulty exam-id="{{examId}}" student-id="{{studentId}}"></lose-difficulty>
+
+  <trend-chart exam-id="{{examId}}" content="{{studentDeac}}" name="{{studentInfo.studentName}}"></trend-chart>
+
+  <view class='btn' bindtap='checkBook'>查看该生错题集</view>
+</view>

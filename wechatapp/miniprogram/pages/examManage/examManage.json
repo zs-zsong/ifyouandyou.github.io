@@ -1,0 +1,8 @@
+{
+   "navigationBarTitleText": "考试",
+   "usingComponents": {
+     "gradeM":"../components/gradeM/gradeM",
+      "bindPhone": "../login/bindPhone/bindPhone"
+    },
+    "enablePullDownRefresh": true
+}

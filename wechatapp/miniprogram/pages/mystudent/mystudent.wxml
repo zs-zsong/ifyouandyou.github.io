@@ -1,0 +1,36 @@
+<!--pages/parent/parent.wxml-->
+<view class='container'>
+  <view class='head'>
+    <view class='search'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{classList}}" range-key="class">
+        <view class="picker">
+          {{classList[index].class +'（'+ classList[index].stuNum+')' }}人
+        </view>
+      </picker>
+      <view class='bottom'>
+        <image src='../../image/bottom.png' />
+      </view>
+    </view>
+    <!-- <view class='editBtn' bindtap='goEdit'>
+      <image src='../../image/student_edit.png'></image>
+    </view> -->
+  </view>
+  <view class='list'>
+    <view class='tr' wx:for="{{studentList}}" wx:key="{{index}}">
+      <view class='num'>{{index+1}}</view>
+      <view class='name'>{{item.student_name}}</view>
+    </view>
+    <!-- <view class='tr'>
+      <view class='num'>1</view>
+      <view class='name'>王小明</view>
+    </view>
+    <view class='tr'>
+      <view class='num'>1</view>
+      <view class='name'>王小明</view>
+    </view>
+    <view class='tr'>
+      <view class='num'>1</view>
+      <view class='name'>王小明</view>
+    </view> -->
+  </view>
+</view>

@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="header-wrapper">
+    <view class='title-wrapper'>
+      <view class="title">选择题正确答案识别结果确认</view>
+      <!-- <view class='watch'>查看原图</view> -->
+    </view>
+
+    <view class='anser-preview'>
+      <view class='layer'></view>
+      <image src="{{originPic}}"  mode="aspectFill" />
+      <view class='watch-origion' bindtap="previewImg">
+        查看原图
+      </view>
+    </view>
+    <view class="header-table">
+      
+      <view class="tbody" wx:for="{{examData}}" wx:key="{{item}}" wx:if="{{item.question_type==1||item.question_type==10}}">
+        <view>{{item.question_num}}</view>
+        <view style="display: flex;justify-content: flex-end;padding-right:58rpx;">
+          <!-- <image src="{{item.finalUrl}}" data-item="{{item}}" mode="scaleToFill" bindtap="previewImg"/> -->
+        </view>
+        <view>
+          <!-- <image wx:if="{{item.question_type == 1}}" src="/image/exam/left.png" style="width: 12rpx; height:22rpx;" mode="scaleToFill" /> -->
+          <input placeholder="" data-item="{{item}}" data-index="{{index}}" bindinput="bindinput" value="{{item.answer}}" mode="scaleToFill" bindblur="modify"/>  
+          <image class="status" wx:if="{{!item.answer}}" style="width: 32rpx; height:32rpx;"  src="/image/exam/error.png" />
+          <!-- <image wx:if="{{item.question_type == 1}}" src="/image/exam/right.png" style="width: 12rpx; height:22rpx;" mode="scaleToFill" /> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="score-wrapper">
+    <view class="info">请务必确认识别的正确答案结果与试卷切图一致！</view>
+    <view class="button" bindtap="jumpNext">确认</view>
+  </view>
+</view>

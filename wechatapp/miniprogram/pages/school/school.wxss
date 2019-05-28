@@ -1,0 +1,74 @@
+/* pages/school/school.wxss */
+.container{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.box{
+  width:622rpx;
+  margin: 48rpx auto 0; 
+  position: relative;
+}
+.search{
+  width: 100%;
+  height: 88rpx;
+  background-color: #EBF0F5;
+  border-radius: 16rpx;
+  position: relative;
+}
+.search .input{
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 0 66rpx 0 33rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #1D2023;
+}
+.clear{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  transform: translateY(-50%);
+}
+.content{
+  width: 100%;
+  height: calc(100vh - 180rpx);
+  position: absolute;
+  left: 0;
+  top: 110rpx;
+  background-color: #fff;
+  overflow: scroll;
+}
+.options{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #EBF0F5;
+}
+.options .tit{
+  font-size: 34rpx;
+  color: #1D2023;
+  margin-left: 33rpx;
+}
+.btn{
+  width: 100%;
+  height: 96rpx;
+  background:linear-gradient(90deg,rgba(255,160,51,1) 0%,rgba(255,203,82,1) 100%);
+  border-radius:16rpx;
+  line-height: 96rpx;
+  text-align: center;
+  margin-top: 80rpx;
+  color: #fff;
+  font-size: 34rpx;
+}
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hovers{
+  background-color: #eee;
+}

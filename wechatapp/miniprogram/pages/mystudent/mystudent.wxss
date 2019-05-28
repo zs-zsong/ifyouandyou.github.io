@@ -1,0 +1,75 @@
+/* pages/parent/parent.wxss */
+.container{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.head{
+  width: 690rpx;
+  height: 72rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 24rpx auto 0;
+}
+.search{
+  width: 690rpx;
+  height:72rpx;
+  background-color: #EBF0F5;
+  border-radius: 16rpx;
+  position: relative;
+}
+.search .bottom{
+  width: 32rpx;
+  height: 14rpx;
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  transform: translateY(-50%);
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  padding: 0 33rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #1D2023;
+  line-height: 72rpx;
+}
+.editBtn{
+  width: 72rpx;
+  height: 72rpx;
+}
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.list{
+  width: 690rpx;
+  height: calc(100vh - 140rpx);
+  margin: 20rpx auto 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.list .tr{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tr .num{
+  font-size: 28rpx;
+  color: #818D99;
+  height: 100%;
+  line-height: 88rpx;
+}
+.tr .name{
+  width: 628rpx;
+  font-size: 34rpx;
+  color: #1D2023;
+  border-bottom: 1rpx solid #D7DCE0;
+  height: 100%;
+  line-height: 88rpx;
+  box-sizing: border-box;
+}

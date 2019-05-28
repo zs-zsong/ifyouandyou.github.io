@@ -1,0 +1,217 @@
+<view class='createExam'>
+  <view wx:if="{{false}}" class='pop'>
+    <view class='details'>
+      <view class='tp'>
+          <!-- <image></image> -->
+          <view style='font-size:34rpx;'>正在进行试卷信息识别</view>
+          <view style='font-size:26rpx;'>预计等待时间3分钟，请稍候…</view>
+      </view>
+      <view class='bt'>
+          <view class='item'>
+              <view>基本信息</view>  
+              <image style='width:26rpx;height:26rpx;padding-left:20rpx;' src="../../image/createExam/finish1.png"></image>
+          </view>
+          <view class='item'>
+              <view>分值结构</view>  
+              <image style='width:26rpx;height:26rpx;padding-left:20rpx;' src="../../image/createExam/finish1.png"></image>
+          </view>
+          <view class='item'>
+              <view>学生答卷</view> 
+              <image style='width:26rpx;height:26rpx;padding-left:20rpx;' src="../../image/createExam/finish1.png"></image>
+          </view>
+          <view class='item1'>
+            <view>参考答案 </view>
+            <view style='padding-left:22rpx;'>...</view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class='top'>
+     <view class='noScan' wx:if="{{scanList[0].id != 95277 && scanList.length == 0}}">
+          <image src="../../image/createExam/scanW.png"  style='height:248rpx;width:266rpx;padding-top:90rpx;'/>
+          <view style='color:#fff;font-size:34rpx;padding-top:20rpx;'>暂无可用扫描仪!</view>
+      </view>
+
+      <swiper wx:if="{{scanList[0].id != 95277 && scanList.length>0}}" indicator-color="" 
+                  indicator-active-color="rgba(255,255,255,1)"
+                  indicator-dots="{{dot && scanList.length>1}}"  bindchange="changeScan" class='xscan' >
+          <block wx:for="{{scanList}}" wx:key="{{i}}">
+            <swiper-item style="display:flex;flex-direction:column;align-items:center;">
+                <image wx:if="{{isYZ||item.online != '准备就绪'}}" src="../../image/createExam/scanY.png" class="slide-image"  style='height:248rpx;width:266rpx;'/>
+                <image wx:if="{{!isYZ&&item.online == '准备就绪'}}" src="../../image/createExam/scan.png" class="slide-image"  style='height:248rpx;width:266rpx;'/>
+                <view style='margin-top:20rpx;color:#fff;'>{{item.name}}{{item.online =='请验证'?(no_sacn.length+'台'):''}}</view>
+            </swiper-item>
+          </block>
+      </swiper>
+
+
+     <view wx:if="{{scanList[0].id != 95277 && isb == 1}}" class="tab">
+      <view style='border-radius:44rpx 0 0 44rpx;'  class="{{tap==4?'btn active active1':'btn'}}">
+           <view class='number'>1</view> 
+           <view wx:if="{{tap ==4}}">连接扫描仪</view>
+           <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap==4}}" src="../../image/createExam/arrow_h.png"/>
+            <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap !=4}}" src="../../image/createExam/arrow_b.png"/>
+       </view>
+       <view style='border-radius:0rpx 44rpx 44rpx 0rpx;'  class="{{tap==2?'btn active active1':'btn'}}">
+           <view class='number'>2</view> 
+           <view  wx:if="{{tap ==2}}"> 补扫学生答卷</view>
+        </view>
+     </view> 
+
+     <view wx:if="{{scanList[0].id != 95277 && isb != 1}}" class="tab">
+        <view style='border-radius:44rpx 0 0 44rpx;'  data-info='1' class="{{tap==4?'btn active':'btn'}}">
+             <view class='number'>1</view>
+             <view wx:if="{{tap==4}}">连接扫描仪</view>
+             <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap==4}}" src="../../image/createExam/arrow_h.png"/>
+             <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap == 2||tap == 3}}" src="../../image/createExam/division.png"/>
+        </view>
+         <view  data-info='1' class="{{tap==1?'btn active':'btn'}}">
+             <view class='number'>2</view>
+             <view wx:if="{{tap==1}}">扫描空白卷</view>
+              <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap==1}}" src="../../image/createExam/arrow_h.png"/>
+               <image style='width:32rpx;height:88rpx; position: absolute;left:0;' wx:if="{{tap==1}}" src="../../image/createExam/arrow_b.png"/>
+               <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap==2}}" src="../../image/createExam/arrow_b.png"/>
+             <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap == 3||tap == 4}}" src="../../image/createExam/division.png"/>
+
+        </view>
+        <view style='border-left:none;;'  data-info='2' class="{{tap==2?'btn active':'btn'}}">
+             <view class='number'>3</view>
+             <view wx:if="{{tap==2}}">扫描学生答卷</view>
+               <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap==2}}" src="../../image/createExam/arrow_h.png"/>
+               <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap==3}}" src="../../image/createExam/arrow_b.png"/>
+             <image style='width:32rpx;height:88rpx; position: absolute;right:0;' wx:if="{{tap == 1||tap == 4}}" src="../../image/createExam/division.png"/>
+        </view>
+        <view style='border-radius:0rpx 44rpx 44rpx 0rpx;'  data-info='3' class="{{tap==3?'btn active':'btn'}}">
+             <view class='number'>4</view>
+             <view wx:if="{{tap==3}}">扫描参考答案</view>
+        </view>
+    </view>
+
+    <!-- 归属学校 -->
+  <view wx:if="{{scanList[0].id != 95277&&tap == 4&&isb != 1}}" class='box'>
+      <view class='search'>
+        <input type='text' class='input' bindinput="inputChange" value="{{inputValue}}"/>
+        <view class='clear' wx:if="{{clearStatus}}" bindtap='removeInput'>
+          <image style='height:100%;width:100%;display:block;' src='../../image/clear.png' />
+        </view>
+      </view>
+      <view class='content1' wx:if="{{schoolList.length > 0}}">
+        <view class='options' bindtap='handleClick' wx:for="{{schoolList}}" wx:key="{{index}}" data-id="{{item.id}}"
+         data-name="{{item.school_name}}" hover-class='hovers'>
+          <text class='tit'>{{item.school_name}}</text>
+        </view>
+      </view>
+      <view style='font-size:24rpx;color:#818D99;margin-top:14rpx;'>输入关键字选择归属学校，扫描仪选择更方便!</view>
+  </view>
+
+    <view wx:if="{{scanList[0].id != 95277 && scanList.length == 0}}" class='no_scan'>
+        <view class='h'>请按以下步骤连接扫描仪</view>
+        <view class='c'>1.复制扫描客户端下载链接,发送至连接扫描仪的电脑</view> 
+        <view class='c'>2.在电脑端下载运行该程序并微信扫码登录，以便手机遥控扫描仪。</view>
+        <view bindtap='copy' class='no_btn'>
+           <image src="../../image/createExam/copy.png" style='height:24rpx;width:24rpx;padding-right:12rpx;'/>
+           <view>复制下载链接</view>
+        </view>
+    </view>
+
+     <view wx:if="{{scanList[0].id != 95277&&isYZ&& scanList.length >0}}" class='scanYZ'>
+        <view>
+           <view class='h'>暂无使用权限！</view>
+           <view class='c'>请扫描客户端校验码获取使用授权</view>
+        </view>
+        <view  bindtap="scan" class='scanS'>
+           <image style='height:36rpx;width:36rpx;' src='../../image/createExam/scanE.png'></image>
+        </view>
+    </view>
+
+    <view wx:if="{{scanList[0].id != 95277 && scanList.length>0 && !isYZ && tap == 4}}" class='scanYZ'>
+        <view>
+           <view class='h'>已获取权限，可正常使用！</view>
+           <view class='c'>请点击“下一步”进入扫描流程</view>
+        </view>
+    </view>  
+
+    <view wx:if="{{scanList[0].id != 95277 && scanList.length>0&&!isYZ&&isunderway}}" class='being'></view>
+    <view wx:if="{{scanList[0].id != 95277 && scanList.length>0&&!isYZ&&tap != 4}}" class='content'>
+        <view wx:if="{{isunderway}}"  class='h'>
+             正在扫描{{tap ==1?'空白试卷':tap ==2?'学生答卷':tap ==3?'参考答案':0}}...
+        </view>
+        <view wx:if="{{!isunderway&&!isfinish}}"  class='h'>
+             扫描{{tap ==1?'空白试卷':tap ==2?'学生答卷':tap ==3?'参考答案':0}}
+        </view>
+        <view wx:if="{{!isunderway&&isfinish}}"  class='h' style='display:flex;justify-content:center;'>
+             <image src='../../image/createExam/finish1.png' style='height:40rpx;width:40rpx;padding-top:4rpx;padding-right:6rpx;'></image>
+             <view>完成{{tap ==1?'空白试卷':tap ==2?'学生答卷':tap ==3?'参考答案':0}}扫描</view>
+        </view>
+        <view>已扫描: 
+            {{tap ==1?kNum:tap ==2?xNum:tap ==3?dNum:0}}份
+        </view>
+        <view class='shang'>
+            <view style='padding-right:8rpx'>已上传:</view>   
+            <view bindtap='seeImage' class="{{isfinish?'shang_f':''}}">{{tap ==1?kNum:tap ==2?xNum:tap ==3?dNum:0}}份</view>
+        </view>                    
+    </view>
+
+    <view wx:if="{{scanList[0].id != 95277 && scanList.length>0&&!isYZ&&tap != 4}}" class="{{isunderway?'scan zscan':'scan'}}">
+        <view class="char">扫描设置</view>
+        <view class="group">
+            <view bindtap="changeR" data-info='1' class="{{arr[0].supportsDuplex != 1?'radio radio1':'radio'}}">
+              <view class="{{radio ==1?'select active':'select'}}"></view>
+              <view class="tt">双面</view>
+            </view>
+            <view bindtap="changeR" data-info='2'  class="radio">
+              <view class="{{radio ==2?'select active':'select'}}"></view>
+              <view >单面</view>
+            </view>
+        </view>
+    </view>
+  </view>
+
+  <view wx:if="{{scanList[0].id != 95277 && scanList.length>0 && isb != 1}}" class='bot'>
+    <view wx:if="{{tap == 4}}">
+        <view class="group_btn">
+          <view class="{{isYZ?'btn2 btn2_load':'btn2'}}" data-info='1' bindtap="next">下一步</view>
+        </view>   
+    </view> 
+    <view wx:if="{{tap == 1&&!isYZ}}">
+        <!-- <view wx:if="{{kNum <= 0}}" bindtap="start"  class="{{isReady?'btn':'btn btn_b'}}">开始扫描</view> -->
+        <view wx:if="{{kNum <= 0}}" bindtap="start"  class="{{isunderway?'btn btn_b':'btn'}}">开始扫描</view>
+        <view wx:if="{{kNum > 0}}" class="group_btn">
+          <view  class="btn2" data-info='2' bindtap="next">下一步</view>
+        </view>   
+    </view> 
+    <view wx:if="{{tap == 2&&!isYZ}}">
+      <view class="group_btn">
+          <view bindtap="start" class="{{isunderway?'btn1 btn1_load':'btn1'}}">
+            {{xNum>0?'继续扫描':'开始扫描'}}
+          </view>
+          <view wx:if="{{!isb}}" class="{{isunderway?'btn2 btn2_load':'btn2'}}" data-info='3' bindtap="next">下一步</view>
+          <view wx:if="{{isb}}"  class="{{isunderway?'btn2 btn2_load':'btn2'}}" data-info='3' bindtap="end">完成扫描</view>
+       </view>   
+    </view>
+    <view wx:if="{{tap == 3&&!isYZ}}">
+       <view class="group_btn">
+          <view wx:if="{{dNum <= 0}}" bindtap="start"  class="{{isunderway?'btn1 btn1_load':'btn1'}}">
+            开始扫描
+          </view>
+          <view  class="{{isunderway?'btn2 btn2_load':'btn2'}}" bindtap="end">完成扫描</view>
+       </view>  
+    </view>
+  </view>
+</view>
+
+ <view wx:if="{{scanList[0].id != 95277 && scanList.length>0 && isb == 1}}" class='bot'>
+    <view wx:if="{{tap == 4}}">
+        <view class="group_btn">
+          <view class="{{isYZ?'btn2 btn2_load':'btn2'}}" data-info='2' bindtap="next">下一步</view>
+        </view>   
+    </view> 
+ </view>
+<view wx:if="{{scanList[0].id != 95277 && scanList.length>0 && isb == 1&&tap ==2}}" class='bot'>
+    <view class="group_btn">
+        <view  bindtap="end"  class="{{isunderway?'btn1 btn1_load':'btn1'}}">
+          完成扫描
+        </view>
+        <view class="{{isunderway?'btn2 btn2_load':'btn2'}}" bindtap="start">{{xNum <= 0?'开始扫描':'继续扫描'}}</view>
+    </view>  
+ </view>

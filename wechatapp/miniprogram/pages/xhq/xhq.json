@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "student-rank": "../components/studentRank/studentRank",
+    "grade-chart": "../components/gradeChart/gradeChart",
+    "crew-f": "../components/crewF/crewF"
+  }
+}

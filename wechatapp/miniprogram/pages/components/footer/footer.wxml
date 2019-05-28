@@ -1,0 +1,29 @@
+<!-- <template name="foot"> -->
+  <view class="footer">
+    <view class="footer-wrapper">
+      <view class="item" style="{{type==1?'color:#1D2023':''}}" bindtap="jumpOne">
+        <image mode="scaleToFill" wx:if="{{type==1}}" src="/image/index/score_icon_active.png"/>
+        <image mode="scaleToFill" wx:else src="/image/index/score_icon.png"/>
+        <view class='text'>成绩</view>
+      </view>
+
+      <view wx:if="{{type==2}}"  bindtap="jumpTwo" class="item img" style="{{type==2?'color:#19191A':''}}">
+        <image class="img-pos" mode="scaleToFill" src="/image/add_active.png"/>
+        <view  class="half-circle"></view>
+        <view  class="half-circle-mask"></view>
+        <view class='text'>扫描试卷</view>
+      </view>
+
+      <view wx:if="{{type!=2}}"  bindtap="jumpTwo2" class="item img" style="{{type==2?'color:#19191A':''}}">
+        <image mode="scaleToFill"   src="/image/index/exam_icon.png"/>
+        <view class='text'>考试</view>
+      </view>
+
+      <view class="item"  style="{{type==3?'color:#19191A':''}}" bindtap="jumpThree">
+        <image mode="scaleToFill" wx:if="{{type==3}}" src="/image/index/user_icon_active.png"/>
+        <image mode="scaleToFill" wx:else src="/image/index/user_icon.png"/>
+        <view>我的</view>
+      </view>  
+    </view>
+  </view>
+<!-- </template> -->

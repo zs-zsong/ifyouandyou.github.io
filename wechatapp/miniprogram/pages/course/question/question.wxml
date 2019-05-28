@@ -1,0 +1,153 @@
+<image src='/image/course/back.png' bindtap='back' id="backBtn" mode='scaleToFill'></image>
+<view class="wrapper">
+  <view class='header' bindtap='back'>
+    <view class='left'>      
+     <view class='index'> 题号：<view> {{question.questionStrlevel}} </view> </view>
+     <!-- <view class='type'> 题型:<view>{{question.type == 1?'选择题':'主观题'}}</view> </view> -->
+    </view>
+    <view class='middle'>
+      <view class='item'>
+        <view class='title'>班级平均得分</view>
+        <view class='score'>{{question.avg}}</view>
+      </view>
+      <view class='item'>
+        <view class='title'>得分率</view>
+        <view class='score'>{{question.classRatio}}%</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='container' wx:if="{{question.type==1}}" bindtap='changeQuestion'>
+    <view class='image-wrapper'>
+      <image class='answer-pic' mode="widthFix" wx:for="{{question.questionPic}}" wx:key="this" src="{{item.url}}" />
+    </view>
+
+    <view class='answer-knowlage' wx:if="{{question.knowledgePoint.length > 0}}">
+      <view class='left'>
+        <text>知识点：</text> <text>{{question.knowledgePoint}}</text>
+      </view>
+      <view class='right' wx:if="{{question.practice > 0}}">
+      <navigator class='practice' url='../practice/practice?id={{examId}}&qid={{question.id}}'>相似题练习</navigator>
+    </view>
+      </view>
+    <view class='chat-bottom'>
+      <view class='left'>
+        <view class="container-column">
+        <ff-canvas id="column-dom-column" canvas-id="column-column" opts="{{ opts }}"></ff-canvas>
+      </view>
+      </view>
+      <view class='center'>
+        <view class='table'>
+          <view class='thead'>
+            <view class='td'>选项</view>
+            <view class='td'>选择率</view>
+            <view class='td'>选择人数</view>
+          </view>
+
+          <view class='tbody {{index==chartIndex?"active":""}} {{item.isRight?"isRight":""}}' wx:for="{{chartData}}" wx:key="option" data-index="{{index}}" bindtap="changeChartIndex">
+            <view class='td'>{{item.isRight?'★':''}}{{item.option}}</view>
+            <view class='td'>{{item.optionRatio}}%</view>
+            <view class='td'>{{item.optionNumber}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class='right'>
+        <view class='title'>选择 {{chartData[chartIndex].option}} 的人</view>
+        <view class='student-wrapper-1'>
+          <view class='item' wx:for="{{chartData[chartIndex].nameList}}" wx:key="this">{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='container' wx:if="{{question.type!=1}}" bindtap='changeQuestion'>
+    <view class='image-wrapper'>
+      <image class='answer-pic' mode="widthFix" wx:for="{{question.questionPic}}" wx:key="this" src="{{item.url}}" bindtap='previewImg' data-url="{{item.url}}"/>
+      <image class='answer-pic-1' mode="widthFix" wx:for="{{question.answerPic}}" wx:key="this" src="{{item.url}}" style='width: {{item.width}}rpx' bindtap='previewImg' data-url="{{item.url}}"/>
+    </view>
+    <view class='answer-knowlage answer-knowlage-2' wx:if="{{question.knowledgePoint.length > 0}}">
+      <view class='left'>
+        <text>知识点：</text> <text>{{question.knowledgePoint}}</text>
+      </view>
+      <view class='right' wx:if="{{question.practice > 0}}">
+        <navigator class='practice' url='../practice/practice?id={{examId}}&qid={{question.id}}'>相似题练习</navigator>
+      </view>
+    </view>
+    <view class='answer-footer'>
+      <view class='left'>
+        <view class='title'>答题情况</view>
+        <view class='number-wrapper'>
+          <view class='item {{tabIndex==1?"active":""}}' data-index="1" data-value="{{answerData.fullMark}}" bindtap='changeTabIndex'>
+            <view>{{answerData.fullMark}}人</view>
+            <view>满分</view>
+          </view>
+          <view class='item {{tabIndex==2?"active":""}}' data-value="{{answerData.dropPoints}}"  data-index="2" bindtap='changeTabIndex'>
+            <view>{{answerData.dropPoints}}人</view>
+            <view>丢分</view>
+          </view>
+          <view class='item {{tabIndex==3?"active":""}}' data-value="{{answerData.noMarks}}"  data-index="3" bindtap='changeTabIndex'>
+            <view>{{answerData.noMarks}}人</view>
+            <view>零分</view>
+          </view>
+          <view class='item {{tabIndex==4?"active":""}}' data-value="{{answerData.collect}}" data-index="4" bindtap='changeTabIndex'>
+            <view>{{answerData.collect}}人</view>
+            <view>收藏</view>
+          </view>
+        </view>
+      </view>
+      <view class='right'>
+        <view class='item'>
+          <view class='title'>班级最高分</view>
+          <view class='score'>{{answerData.topScore}}</view>
+        </view>
+        <view class='item'>
+          <view class='title'>班级最低分</view>
+          <view class='score'>{{answerData.lowScore}}</view>
+        </view>
+        <view class='item'>
+          <view class='title'>题目总分</view>
+          <view class='score'>{{answerData.standardScore}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='student-wrapper' wx:if="{{tabIndex!=0}}">
+      <view class='left'>
+        <view class='search'>
+          <!-- <image src='/image/course/search.png' class='search-icon'></image> -->
+          <input name="studentName" type='text' bindinput='searchStudent' maxlength='10' placeholder='搜索学生'></input>
+        </view>
+        <view class='title'>
+          <view>姓名</view>
+          <view>得分</view>
+        </view>
+        <view class='item {{index==studentIndex?"active":""}}' wx:for="{{students}}" wx:key="studentIndex" data-index="{{index}}" bindtap='changeStudentIndex'>
+          <view class='name'>{{item.studentName}}</view>
+          <view class='score'>{{item.score}}</view>
+        </view>
+      </view>
+      <view class='right'>
+       <!-- <view class='title' bindtap="toggleTitle"> 
+          <image src='/image/course/{{showTitle?"collapse":"expand"}}.png'></image> 
+          <text style='font-weight: bold'>学生答案</text>
+        </view>
+        <view class='item' wx:if="{{showTitle}}"> -->
+        <image class='answer-pic' mode="widthFix" src="{{students[studentIndex].answerPostion}}" bindtap='previewImg' data-url="{{students[studentIndex].answerPostion}}"/>
+        <!-- </view>
+        <view class='title' bindtap="toggleAnswer"> 
+          <image src='/image/course/{{showTitle?"collapse":"expand"}}.png'></image> 
+          <text style='font-weight: bold'>参考答案</text>
+        </view>
+        <view class='item' wx:if="{{showAnswer}}">
+          <image class='answer-pic' mode="widthFix" src="{{question.answerPic}}" bindtap='previewImg' data-url="{{question.answerPic}}"/>
+        </view> -->
+        
+      </view>
+    </view>
+
+    <view class='layer' wx:if="{{tabIndex!=0}}"></view>
+  </view>
+
+  <!-- <view style='height:500rpx; width:100%'></view> -->
+</view>

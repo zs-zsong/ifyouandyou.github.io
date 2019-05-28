@@ -1,0 +1,80 @@
+*{
+    padding:0;
+    margin:0;
+}
+body {  
+    /* 加载背景图 */
+    background: url("../images/background.png") no-repeat;
+
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+
+    /* 设置背景颜色，背景图加载过程中会显示背景色 */
+    height: 100%;
+
+}
+.index{
+    height: 100%;
+    width: 100%;
+    color:#fff;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.index .left_text{
+    height: 100%;
+    width: 80%;
+    background: url("../images/border@2x.png") no-repeat left center;
+    display: flex;
+    align-items: center;
+}
+.index .left_text .title{
+    position: relative;
+}
+.index .left_text h3{
+    font-size: 60px;
+    font-weight: bold;
+    margin:50px 0 150px 120px;
+    position: relative;
+    z-index: 2;
+    /* background: url("../images/border.png") no-repeat left center;
+    background-size: 180px 96px; */
+}
+.index .left_text h4{
+    font-size: 40px;
+    margin-left:100px;
+    /* font-family: 'NotoSansHans-Medium',Georgia,serif; */
+    /* font-family: 'NotoSansHans-Medium',Georgia, 'Times New Roman', Times, serif; */
+
+}
+.index .left_text h5{
+    /* DINOT-Regular */
+
+    font-size: 24px;
+    margin-left:100px;
+    /* font-family: 'DINOT-Regular',Georgia,serif; */
+}
+.index .back{
+    width:180px;
+    height:96px;
+    background:#FFA310;
+    /* opacity:0.24; */
+    border-radius:0px 48px 48px 0px;
+    position: absolute;
+    top:-4px;
+    left:100px;
+    z-index: 1;
+}
+.index .right_btn{
+    margin-right:40px;
+    width:171px;
+    height: 171px;
+    background: url("../images/page@2x.png") no-repeat;
+}

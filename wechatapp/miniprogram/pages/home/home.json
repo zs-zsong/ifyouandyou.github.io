@@ -1,0 +1,12 @@
+{
+  "backgroundColor": "#fff",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "footer":"../components/footer/footer",
+    "examGrade":"../exam/examGrade/examGrade",
+    "user":"../user/user",
+    "examManage": "../examManage/examManage",
+    "ff-canvas": "@antv/f2-canvas"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,25 @@
+<!--pages/myscanner/myscanner.wxml-->
+<view class='container'>
+  <view class='title' wx:if="{{schoolName != '无归属学校'}}">{{schoolName}}</view>
+  <view class='list'  wx:for="{{schoolList}}" wx:key="{{index}}">
+    <view class='left'>
+      <view class='icons'>
+        <image src='../../image/scaner.png'></image>
+      </view>
+      <view class='tit'>{{item.name}}</view>
+    </view>
+    <view class='remove' bindtap='removeScan'  data-url="{{item.unionCode}}">移除</view>
+  </view>
+  <view class='nones'  wx:if="{{schoolList.length == 0 && schoolName != '无归属学校'}}">没有数据</view>
+  <view class='title'>无归属学校（个人）</view>
+  <view class='list' wx:for="{{userList}}" wx:key="{{index}}">
+    <view class='left'>
+      <view class='icons'>
+        <image src='../../image/scaner.png'></image>
+      </view>
+      <view class='tit'>{{item.name}}</view>
+    </view>
+    <view class='remove' bindtap='removeScan' data-url="{{item.unionCode}}">移除</view>
+  </view>
+  <view class='nones' wx:if="{{userList.length == 0}}">没有数据</view>
+</view>

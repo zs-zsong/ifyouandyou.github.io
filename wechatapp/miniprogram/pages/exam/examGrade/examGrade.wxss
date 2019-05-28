@@ -1,0 +1,436 @@
+/* pages/exam/examGrade/examGrade.wxss */
+@import '../../../plugins/animate/animate.wxss';
+.empty-info {
+  padding-top: 77rpx; 
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  font-size: 30rpx;
+  background-color: #fff;
+  min-height: calc(100vh - 100rpx);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.empty-info .top{
+  width: 100%;
+  font-size:28rpx;
+  color:rgba(129,141,153,1);
+}
+.empty-info .top .title-layer{
+
+}
+.empty-info .top .item-wrapper-layer{
+  position: relative;
+  margin-top: 28rpx;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 47rpx;
+  box-sizing: border-box;
+}
+.empty-info .top .item-layer{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width:200rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 4rpx 31rpx 1rpx rgba(29,32,35,0.1);
+  border-radius:40rpx;
+}
+.empty-info .top .item-layer:nth-child(1) {
+  left: 47rpx;
+}
+.empty-info .top .item-layer:nth-child(2) {
+  width:224rpx;
+  left: 231rpx;
+}
+.empty-info .top .item-layer:nth-child(3) {
+  left: 439rpx;
+}
+.empty-info .top .item-layer image{
+  height: 16rpx;
+  width: 16rpx;
+  margin-right: 9rpx;
+}
+.empty-info .top .item-more-layer {
+  position: absolute;
+  top: 50%;
+  right: 47rpx;
+  transform: translateY(-50%);
+  width:80rpx;
+  height:80rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 4rpx 31rpx 1rpx rgba(29,32,35,0.1);
+  border-radius:40rpx;
+  letter-spacing: 2rpx;
+  line-height:66rpx;
+} 
+.empty-info .bottom view:nth-child(2){
+  color: #1D2023;
+  font-size: 34rpx;
+  font-weight: bold;
+} 
+.empty-info .bottom view:nth-child(3){
+  color: #818D99;
+  font-size: 28rpx;
+} 
+.empty-info .bottom image{
+  width:148rpx;
+  height:160rpx;
+  margin-bottom: 40rpx;
+} 
+.empty-info .down-1 {
+  width: 48rpx;
+  height: 72rpx;
+  margin-bottom: 40rpx;
+  animation: box-ani 1s alternate infinite;
+}
+
+@keyframes box-ani {
+  from {transform:translateY(0)}
+  to {transform:translateY(-10) }
+}
+
+.box-animation {
+  animation: box-ani 1s alternate infinite;
+}
+
+
+.index-bg {
+  width:150px;
+  height:86px;
+  background-color: #ccc;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* -webkit-background-size: auto 173px; */
+  position: relative;
+  float:left;
+  /* margin:25px 5px; */
+  text-align:center;
+  zoom:1;
+}
+
+.index-bg::before,
+.index-bg::after {
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: inherit;
+  z-index:-2;
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.index-bg::before {
+  z-index:-1;
+  -webkit-transform: rotate(60deg);
+}
+
+.index-bg::after {
+  -webkit-transform: rotate(-60deg);
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: -99;
+  padding: 31rpx 34rpx 68rpx 32rpx;
+  color: #1D2023;
+  font-size: 34rpx;
+  background: #fff;
+}
+.header .title{
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .title text{
+  width: 80%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.header .title image{
+  width: 32rpx;
+  height: 28rpx;
+}
+.header .info{
+  margin-top: 23rpx;
+  font-size: 24rpx;
+  color: #818D99;
+}
+.header .item-wrapper{
+  margin-top: 48rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .item-wrapper .item{
+  display: flex;
+  align-items: center;
+  color: #1D2023;
+  font-size: 28rpx;
+}
+.header .item-wrapper .item text{
+  margin-left: 16rpx;
+}
+.header .item-wrapper .item:nth-child(1) image{
+  width: 40rpx;
+  height: 47rpx;
+}
+.header .item-wrapper .item:nth-child(2) image{
+  width: 40rpx;
+  height: 47rpx;
+}
+.header .item-wrapper .item:nth-child(3) image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.grade-wrapper {
+  margin-top: 260rpx;
+  background-color: #fff;
+  box-shadow:0px -8px 32px 0px rgba(29,32,35,0.08);
+  border-radius:24px 24px 0px 0px;
+ }
+.grade-wrapper .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 31rpx 39rpx 33rpx;
+}
+.grade-wrapper .top .name{
+  color: #1D2023;
+  font-weight: bold;
+  font-size: 48rpx;
+}
+.grade-wrapper .top .right{
+  color: #818D99;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.grade-wrapper .top .right .search-wrapper{
+  position: absolute;
+  z-index: 101;
+  top: 52rpx;
+  right: 0;
+  font-size: 28rpx;
+  color: #1D2023;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 4rpx 24rpx 0rpx rgba(29,32,35,0.08);
+  border-radius:16rpx 0rpx 16rpx 16rpx;
+}
+.grade-wrapper .top .right .search-wrapper .item:first-child{
+  border-radius:16rpx 0rpx 0rpx 0rpx;
+}
+.grade-wrapper .top .right .search-wrapper .item:last-child{
+  border-radius:0rpx 0rpx 0rpx 16rpx;
+}
+.grade-wrapper .top .right .search-wrapper .item{
+  width:240rpx;
+  height:88rpx;
+  text-align: left;
+  padding-left: 79rpx;
+  box-sizing: border-box;
+  line-height: 88rpx;
+}
+.grade-wrapper .top .right .search-wrapper .active{
+  background:rgba(235,240,245,1);
+}
+.layer-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background:rgba(29,32,35,1);
+  opacity:0.24;
+}
+.grade-wrapper .top .right image{
+  width: 34rpx;
+  height: 32rpx;
+  margin-left: 13rpx;
+}
+.student-wrapper  {
+  padding-bottom: 120rpx;
+  overflow: hidden;
+  background-color: #fff;
+  min-height:56vh;
+}
+.student-wrapper .ahead-wrapper{
+  padding-top: 39rpx;
+  margin-bottom: -8rpx;
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+}
+.student-wrapper .ahead-wrapper .item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 212rpx;
+}
+.student-wrapper .ahead-wrapper .item .num{
+  width: 88rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 14rpx;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(2) .num{
+  margin-bottom: 29rpx;
+}
+.student-wrapper .ahead-wrapper .item .name{
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  font-size: 34rpx;
+}
+.student-wrapper .ahead-wrapper .item .score{
+  margin-bottom: 24rpx;
+  font-size: 28rpx;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(1) .num{
+  /* height: 243rpx; */
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/second_icon.png?sign=33fa89ef74a3cdd52d277f1aa286b42b&t=1557307325) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(2) .num{
+  /* height: 243rpx; */
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/first_icon.png?sign=7256679b08921dfc8cd70bc30e8808ed&t=1557307350) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(3) .num{
+  /* height: 243rpx; */
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/three_icon.png?sign=81eefc657a374a93aa6c1fdbc11d2ba5&t=1557307363) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(1){
+  height: 243rpx;
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/second.png?sign=b35c3c7223167d6a54ddea28b8880692&t=1557306246) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(2){
+  height: 263rpx;
+  margin: 0 26rpx;
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/first.png?sign=891364dd4a4f0f7a158a936bd701058b&t=1557306290) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .ahead-wrapper .item:nth-child(3){
+  height: 243rpx;
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/three.png?sign=2b4637e2615d51cf858228d1a38bde44&t=1557306305) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .ahead-wrapper .item{
+  text-align: center;
+  border-radius:24rpx 24rpx 0 0;
+}
+.student-wrapper .item-each{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 64rpx 0 32rpx;
+  margin-top: 48rpx;
+  color: #1D2023;
+  font-size: 34rpx;
+}
+.student-wrapper .item-each:first-child{
+  margin-top: 0rpx;
+}
+.student-wrapper .item-each .left,.student-wrapper .item-each .right{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.student-wrapper .item-each .index{
+  width: 54rpx;
+  height: 56rpx;
+  text-align: center;
+  line-height: 56rpx;
+  font-weight: bold;
+}
+.index-bg {
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/yuanyue_weixin/last_icon.png?sign=fa358c14b3fb165f7e4dd750c1e4ef23&t=1557308263) no-repeat;
+  background-size: cover;
+}
+.student-wrapper .item-each .name{
+  margin-left: 25rpx;
+}
+.student-wrapper .item-each .score{
+  
+}
+.student-wrapper .item-each image{
+  height: 13rpx;
+  width: 32rpx;
+  transform: rotate(-90deg);
+  margin-left: 30rpx;
+}
+.exam-wrapper-layer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  padding: 31rpx 33rpx 0 33rpx;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background:rgba(255,255,255,1);
+}
+.exam-wrapper-layer .title {
+  color: #818D99;
+  font-size: 34rpx;
+  margin-bottom: 66rpx;
+}
+.exam-wrapper-layer .image-wrapper {
+  height: 34rpx;
+}
+.exam-wrapper-layer .image-wrapper image{
+  width: 34rpx;
+  height: 34rpx;
+  margin-bottom: 32rpx;
+  float: right;
+}
+.exam-wrapper {
+  height: calc(100% - 165rpx);
+  overflow: scroll;
+}
+.exam-wrapper .item:last-child{
+  border: none;
+}
+.exam-wrapper .item{
+  height: 96rpx;
+  line-height: 96rpx;
+  color:#1D2023;
+  font-weight: bold;
+  font-size: 28rpx;
+  border-bottom: 1px solid #EBF0F5;
+}
+/* <view class='exam-wrapper-layer' bindtap='cancle'>
+  <view class='iamge-wrapper'>
+    <image mode="scaleToFill" src="/image/examGrade/down.png"></image>
+  </view>
+  <view class='title'>历次测验</view>
+  <view class='exam-wrapper'>
+    <view class='item'>元高分实验中学初二语文小测验 20190506</view>
+    <view class='item'>元高分实验中学初二语文小测验 20190506</view>
+    <view class='item'>元高分实验中学初二语文小测验 20190506</view>
+  </view>
+</view> */

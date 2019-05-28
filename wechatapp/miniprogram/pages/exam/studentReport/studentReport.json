@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "knowladge-lost": "/pages/wrongTopic/components/knowladgeLost/knowladgeLost",
+    "trend-chart": "/pages/wrongTopic/components/trendChart/trendChart",
+    "lose-difficulty": "/pages/wrongTopic/components/loseDifficulty/loseDifficulty"
+  }
+}

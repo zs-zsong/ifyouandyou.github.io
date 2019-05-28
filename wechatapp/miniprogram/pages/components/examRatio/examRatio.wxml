@@ -1,0 +1,57 @@
+<!-- 考试三率对比 -->
+<view class='chart-wrapper'>
+
+  <view class='overview'>
+    <view class='title'>
+      <image mode="scaleToFill"  src="/image/cuotiji/sldb.png"></image>三率对比
+    </view>
+  </view>
+  <!-- <view class="ratio-title">本次考试三率对比</view>
+  <view class="ratio-tap">
+    <image style="height: 24rpx;width: 24rpx;" src="../../../image/score/question.png" mode="aspectFit" />
+    <text bindtap='showSet'>三率设置</text>
+  </view> -->
+  <!-- <slot name="examRatio"></slot> -->
+
+  <view class="container-column">
+    <ff-canvas id="column-dom-ratio" canvas-id="column-ratio" opts="{{ opts }}"></ff-canvas>
+
+    <view class='change-ratio'>
+      <view class='item'  bindtap='changeTop'>0-60%</view>
+      <view class='item'  bindtap='changeTop'>60-100%</view>
+      <view class='item'  bindtap='changeTop'>90-100%</view>
+    </view>
+  </view>
+
+  <!-- <canvas
+    id="areaRatio"
+    onTouchStart="touchStart"
+    onTouchMove="touchMove"
+    onTouchEnd="touchEnd"
+    width="{{width}}" height="{{height}}"
+  /> -->
+
+  <!-- <set-ratio is-show="{{isShow}}" exam-id="{{examId}}"  bindmyevent="onMyEvent" /> -->
+</view>
+
+<cover-view class='setTop' wx:if="{{showTop}}">
+  <cover-view class='wrapper'>
+    <cover-view class='cancle' bindtap='cancle'>取消</cover-view>
+    <cover-view class='right'>
+      <cover-view class='input-wrapper' bindtap='tapInput'>
+          <cover-view class='text' wx:if="inputInfo">{{inputInfo}}</cover-view>
+          <input focus='{{inputFocus}}' bindblur='blurInput' placeholder="" maxlength="3" type="number" auto-focus />
+          <cover-view  class='text'>%</cover-view>
+      </cover-view>
+
+      <cover-view class='middle'>至</cover-view>
+
+      <cover-view class='input-wrapper' bindtap='tapInputOne'>
+        <input placeholder="" maxlength="3" type="number" />
+          <cover-view class='text' wx:if="inputInfoOne">{{inputInfoOne}}</cover-view>
+          <input focus='{{inputFocusOne}}' bindblur='blurInputOne' placeholder="" maxlength="3" type="number" auto-focus />
+          <cover-view  class='text'>%</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>

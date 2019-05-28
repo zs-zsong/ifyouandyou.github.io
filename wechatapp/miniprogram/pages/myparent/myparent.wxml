@@ -1,0 +1,78 @@
+<!--pages/myparent/myparent.wxml-->
+<view class='container'>
+  <view class='search'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{classList}}"  range-key="class">
+      <view class="picker">
+        {{classList[index].class +'（'+ classList[index].stuNum+')' }}人
+      </view>
+    </picker>
+    <view class='bottom'>
+      <image src='../../image/bottom.png' />
+    </view>
+  </view>
+  <view class='tabs'>
+    <view class="tb {{tabactive==1?'active':''}}" bindtap='changeTab' data-tab="1">
+      <text>未关联({{unUnion.length}})</text>
+      <view class='line' wx:if="{{tabactive==1}}"></view>
+    </view>
+    <view class="tb {{tabactive==2?'active':''}}" bindtap='changeTab' data-tab="2">
+      <text>已关联({{union.length}})</text>
+      <view class='line' wx:if="{{tabactive==2}}"></view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='notice' wx:if="{{tabactive == 2}}">长按可解除家长绑定关系</view>
+    <view class='list' wx:if="{{tabactive == 2}}">
+      <view class='option' wx:for="{{union}}" wx:key="{{index}}" bindlongtap='actions' data-index="{{index}}">
+        <view class='name'>{{item.student_name}}</view>
+        <view class='avator'>
+          <view class='head' wx:for="{{item.parentInfo}}">
+            <image src='{{item.weixinPic}}' wx:if="{{item.weixinPic.indexOf('http') >= 0}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='union_list' wx:if="{{tabactive == 1}}">
+      <view class='option' wx:for="{{unUnion}}" wx:key="{{index}}" >
+        <view class='name'>{{item.student_name}}</view>
+        <view class='avator'>
+          
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='propmodel' wx:if="{{propmodel}}">
+    <view class='box'>
+      <view class='title'>请选择要解绑的家长</view>
+      <view class='users' wx:for="{{parentInfo}}" wx:key="{{index}}">
+        <view class='u_info'>
+          <view class='u_head'>
+            <image src='{{item.weixinPic}}' wx:if="{{item.weixinPic.indexOf('http') >= 0}}"></image>
+          </view>
+          <view class='u_name'>{{item.nick_name}}</view>
+          <view class='tag'>妈妈</view>
+        </view>
+        <view class='icon' bindtap='unionHandle' data-id="{{item.user_base_id}}">
+          <image src="../../image/user_active.png" wx:if="{{parentId.indexOf(user_base_id)}}" />
+          <image src="../../image/user_nomal.png" wx:else />
+          
+        </view>
+      </view>
+      <!-- <view class='users'>
+        <view class='u_info'>
+          <view class='u_head'></view>
+          <view class='u_name'>孩子他爸</view>
+          <view class='tag'>爸爸</view>
+        </view>
+        <view class='icon'>
+          <image src="../../image/user_nomal.png" wx:if="{{useractive}}" />
+          <image src="../../image/user_active.png" wx:else />
+        </view>
+      </view> -->
+      <view class='actions'>
+        <view class='btn' bindtap='closeModel'>取消</view>
+        <view class='btn' bindtap='btnHandle'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

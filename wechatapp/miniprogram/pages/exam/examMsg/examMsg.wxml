@@ -1,0 +1,42 @@
+<view class="container">
+    <view class="item-wrapper">
+      <view class="item">
+        <text class="key">考试名称</text>
+        <text class="value">{{school}}</text>
+      </view>
+      <view class="item">
+        <text class="key">考试班级</text>
+        <text class="value">{{grade}}</text>
+      </view>
+      <view class="item">
+        <text class="key">学生答卷</text>
+        <text class="value">{{answerInfo.student}}</text>
+      </view>
+      <view class="item">
+        <text class="key">空白答卷</text>
+        <text class="value">{{answerInfo.block}} 张</text>
+      </view>
+      <view class="item">
+        <text class="key">参考答案</text>
+        <text class="value">{{answerInfo.reference}} 张</text>
+      </view>
+      <view class="item">
+        <text class="key">评卷进度</text>
+        <view class="progress">
+          <view class="bar" style="width:{{complete}}%"></view>
+          <text>{{complete}}%</text>
+        </view>
+      </view>
+    </view>
+    <view class="button" bindtap="preview" wx:if="{{complete==100}}">成绩预览</view>
+    <view class="button" bindtap="toExam" wx:else>去评卷</view>
+    <view class="info">您还可以：</view>
+    <view class="btn-wrapper">
+      <view class="content" bindtap="retry">
+        <view><text>补扫试卷</text></view>
+      </view>
+      <view class="content" bindtap="modify">
+        <view><text>修改识别结果</text></view>
+      </view>
+    </view>
+</view>

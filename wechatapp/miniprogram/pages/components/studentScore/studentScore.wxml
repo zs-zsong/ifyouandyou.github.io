@@ -1,0 +1,17 @@
+<view class="container_student">
+  <view class="item">
+    <view class="label">孩子得分</view>
+    <view class="bar" style="flex: 0 0 {{chatData.studentScore/150*80}}%">{{chatData.studentScore}}</view>
+  </view>
+  <view class="item">
+    <view class="label">班级平均分</view>
+    <view class="bar" style="flex: 0 0 {{chatData.classAvg/150*80}}%">{{chatData.classAvg}}</view>
+  </view>
+  <view class="item">
+    <view class="label">班级最高分</view>
+    <view class="bar" style="flex: 0 0 {{chatData.maxScore/150*80}}%">{{chatData.maxScore}}</view>
+  </view>
+  <view class="info">
+    总分<view class="total">{{chatData.studentScore}}</view>分,击败了本班级 <view class="ratio">{{chatData.beat&&chatData.beat*100}}%</view>的同学
+  </view>
+</view>

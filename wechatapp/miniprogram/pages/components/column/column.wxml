@@ -1,0 +1,96 @@
+<view class='column-wrapper'>
+
+
+  <view class='overview'>
+    <view class='title'>
+      <image mode="scaleToFill"  src="/image/cuotiji/gk.png"></image>概况
+    </view>
+  </view>
+
+  <view class='info-wrapper'>
+      <view class='content'>
+        <view class='item'>
+          <view>{{baseInfo.examNumber}}</view>
+          <view>参考人数</view>
+        </view>
+        <view class='item'>
+          <view>{{baseInfo.excellenceNumber}}</view>
+          <view>优秀人数</view>
+        </view>
+        <view class='item'>
+          <view>{{baseInfo.excellenceRate}}%</view>
+          <view>及格人数</view>
+        </view>
+      </view>
+  </view>
+
+  <!-- <slot name="column"></slot> -->
+  <view class="container-column">
+    <ff-canvas id="column-dom-column" canvas-id="column-column" opts="{{ opts }}"></ff-canvas>
+    <cover-view class='change-top' bindtap='changeTop'>
+      <cover-view>前10平均</cover-view>
+      <cover-view class='img'>
+        <cover-image class='img' src="/image/cuotiji/top.png" />
+        <cover-image class='img' mode="scaleToFill" src="/image/cuotiji/down.png" />
+      </cover-view>
+    </cover-view>
+  </view>
+
+  <view class='student-wrapper paddingBotom'>
+    <view class='info'> <view></view>班级前5名</view>
+    <view class='content'>
+      <view class='item' wx:for="{{preStudentData}}" wx:key="{{index}}">
+        <view>{{item.studentName}}</view>
+        <view>{{item.score}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='student-wrapper'>
+    <view class='info'> <view></view>班级后5名</view>
+    <view class='content'>
+      <view class='item' wx:for="{{nextStudentData}}" wx:key="{{index}}">
+        <view>{{item.studentName}}</view>
+        <view>{{item.score}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="top-five">
+    <view class="c-title">班级前五名</view>
+    <view class="table">
+      <view class="thead" >
+        <view wx:for="{{preStudentData}}"  wx:key="{{item}}" wx:for-item="item">{{item.studentName}}</view>
+      </view>
+      <view class="tbody">
+        <view wx:for="{{preStudentData}}"  wx:key="{{item}}" wx:for-item="item">{{item.score}}</view>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- <view class="behind-five">
+    <view class="c-title">班级后五名</view>
+    <view class="table" wx:if="{{chatStudentData.length>5}}">
+      <view class="thead">
+        <view wx:for="{{nextStudentData}}" wx:key="{{item}}" wx:for-item="item">{{item.studentName}}</view>
+      </view>
+      <view class="tbody">
+        <view wx:for="{{nextStudentData}}" wx:key="{{item}}" wx:for-item="item">{{item.score}}</view>
+      </view>
+    </view>
+  </view> -->
+</view>
+
+<cover-view class='setTop' wx:if="{{showTop}}">
+  <cover-view class='wrapper'>
+    <cover-view class='cancle' bindtap='cancle'>取消</cover-view>
+    <cover-view class='right middle'>全班{{baseInfo.examNumber}}人,前</cover-view>
+    <cover-view class='right cover-input' bindtap='tapInput'>
+    <cover-view class='text' wx:if="inputInfo">{{inputInfo}}</cover-view>
+    <input focus='{{inputFocus}}' bindblur='blurInput' placeholder="" maxlength="3" type="number" auto-focus /> </cover-view>
+  </cover-view>
+</cover-view>
+
+<!-- <cover-view class='cover-input' bindtap='tapInput'>
+    <cover-view class='text'>{{inputInfo}}</cover-view>
+    <input class='input' value='{{inputModel}}' focus='{{inputFocus}}' bindblur='blurInput'></input>
+</cover-view> -->

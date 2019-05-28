@@ -1,0 +1,117 @@
+<!--pages/exam/examGrade/examGrade.wxml-->
+<bindPhone wx:if="{{type==1}}" status="{{showBind&&hasExam}}" bindmyevent="onMyEvent"></bindPhone>
+
+
+<view wx:if="{{type==1&&hasExam&&hasPhone&&showBody}}">
+  <!-- <view class='index-bg'></view> -->
+  <view class='header'>
+    <view class='title'>
+      <text>{{examName}}</text>
+      <image bindtap='chooseExam' mode="scaleToFill" src="/image/examGrade/tool.png"></image>
+    </view>
+    <view class='info'>
+      <text>班级：{{examClass}}</text>
+      <text style='margin:0 8rpx'>/</text>
+      <text>科目：{{subject}}</text>
+    </view>
+    <view class='item-wrapper'>
+      <view class='item' bindtap='classReport'>
+        <image mode="scaleToFill" src="/image/examGrade/report.png"></image>
+        <text>班级报告</text>
+      </view>
+      <navigator url='/pages/course/cover/cover?id={{examId}}' class='item'>
+        <image mode="scaleToFill" src="/image/examGrade/class.png"></image>
+        <text>试卷讲评</text>
+      </navigator>
+      <view class='item' bindtap='publicGrade'>
+        <image mode="scaleToFill" src="/image/examGrade/grade.png"></image>
+        <text>错题集</text>
+      </view>
+    </view>
+  </view>
+  <view class='grade-wrapper'>
+    <view class='top'>
+      <text class='name'>成绩单</text>
+      <view class='right' bindtap='search'>
+        <text>{{typeBar==5?'全部':typeBar==1?"优秀":typeBar==2?"良好":typeBar==3?"及格":typeBar==4?"不及格":""}}</text>
+        <image mode="scaleToFill" src="/image/examGrade/search.png"></image>
+
+        <view class='search-wrapper' hidden='{{showSearch}}'>
+          <view class='item {{typeBar==5?"active":""}}' data-info="5" catchtap='searchStudent'>全部</view>
+          <view class='item {{typeBar==1?"active":""}}' data-info="1" catchtap='searchStudent'>优秀</view>
+          <view class='item {{typeBar==2?"active":""}}' data-info="2" catchtap='searchStudent'>良好</view>
+          <view class='item {{typeBar==3?"active":""}}' data-info="3" catchtap='searchStudent'>及格</view>
+          <view class='item {{typeBar==4?"active":""}}' data-info="4" catchtap='searchStudent'>不及格</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='student-wrapper'>
+    <view class='ahead-wrapper' wx:if="{{typeBar==5}}">
+      <view class='item' wx:if="{{studentData.length>1}}" data-info="{{studentData[1]}}" bindtap='checkStudent'>
+        <view class='num'>{{studentData[1].rank}}</view>
+        <view class='name'>{{studentData[1].studentName}}</view>
+        <view class='score'>{{studentData[1].score}}分</view>
+      </view>
+      <view class='item' wx:if="{{studentData.length>0}}" data-info="{{studentData[0]}}" bindtap='checkStudent'>
+        <view class='num'>{{studentData[0].rank}}</view>
+        <view class='name'>{{studentData[0].studentName}}</view>
+        <view class='score'>{{studentData[0].score}}分</view>
+      </view>
+      <view class='item' wx:if="{{studentData.length>2}}" data-info="{{studentData[2]}}" bindtap='checkStudent'>
+        <view class='num'>{{studentData[2].rank}}</view>
+        <view class='name'>{{studentData[2].studentName}}</view>
+        <view class='score'>{{studentData[2].score}}分</view>
+      </view>
+    </view>
+    <view class="item-each" wx:for="{{restStudent}}" wx:key="item" wx:for-index="index">
+      <view class='left'>
+        <view class='index {{item.rank<6?"index-bg":""}}'>{{item.rank}}</view>
+        <view class='name'>{{item.studentName}}</view>
+      </view>
+      <view class='right' data-info="{{item}}" bindtap='checkStudent'>
+        <view class='score'>{{item.score}}</view>
+        <image mode="scaleToFill" src="/image/examGrade/down.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 没有考试提示 -->
+<view class='empty-info' wx:if="{{type==1&&!hasExam&&showBody}}">
+  <view class='top'>
+    <view class='title-layer'>成绩分析为您提供班级和学生个人完整的</view>
+    <view class='item-wrapper-layer'>
+      <view class='item-layer'>
+        <image mode="scaleToFill" src="/image/examGrade/circle.png"></image>成绩分析
+      </view>
+      <view class='item-layer'>
+        <image mode="scaleToFill" src="/image/examGrade/circle.png"></image>试卷讲评课件
+      </view>
+      <view class='item-layer'>
+        <image mode="scaleToFill" src="/image/examGrade/circle.png"></image>成绩推送
+      </view>
+      <view class='item-more-layer'>…</view>
+    </view>
+  </view>
+  
+  <view class='bottom'>
+    <image mode="scaleToFill" src="/image/examGrade/no_exam.png"></image>
+    <view>未发现可分析考试</view>
+    <view>请先完成一次考试</view>
+  </view>
+
+  <image class='down-1' animation="{{moveData}}" mode="scaleToFill" src="/image/examGrade/down_1.png"></image>
+</view>
+
+<view class='layer-wrapper' hidden='{{showSearch}}' bindtap='cancle'></view>
+
+<view class='exam-wrapper-layer' hidden='{{showExam}}'>
+  <view class='image-wrapper'>
+    <image mode="scaleToFill" bindtap='closeExam' src="/image/close.png"></image>
+  </view>
+  <view class='title'>历次测验</view>
+  <view class='exam-wrapper'>
+    <view class='item' wx:for="{{examList}}" wx:key="{{index}}" wx:if="item.status==7" bindtap='chooseExamItem' data-info="{{item}}">{{item.exam_name}}</view>
+  </view>
+</view>

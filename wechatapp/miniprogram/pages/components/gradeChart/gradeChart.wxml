@@ -1,0 +1,13 @@
+<view class="gradeChart">
+   <view class="t1">历次考试学生排名</view>
+   <view class="gtitle">
+     <view class="gd">考试名称</view>
+     <view class="gd">个人得分</view>
+     <view class="gd">班级平均分</view>
+   </view>
+   <view class="gtitle gtitle1 tbody" wx:for="{{chatData}}" wx:key="index">
+     <view class="gd">{{item.exam_name}}</view>
+     <view class="gd">{{item.score}}</view>
+     <view class="gd">{{item.avgScore}}</view>
+   </view>
+</view>

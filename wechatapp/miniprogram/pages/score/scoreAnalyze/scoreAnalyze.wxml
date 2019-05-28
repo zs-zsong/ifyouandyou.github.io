@@ -1,0 +1,31 @@
+
+<view class='exam-list'>
+  <view>{{array[index]}}</view>
+  <view class="section">
+        <picker style='width:50rpx;text-align:right;' bindchange="bindPickerChange" value="{{item.name}}" range="{{array}}">
+        <image mode="scaleToFill"  src="/image/cuotiji/toolbar.png"></image>
+    </picker>
+  </view>
+  
+</view>
+
+<view wx:if="{{type==1}}" class='container'>    
+    <!-- 考试成绩概况 -->
+    <column exam-id="{{examId}}"> </column>
+
+    <!-- 考试三率设置 -->
+    <exam-ratio exam-id="{{examId}}"></exam-ratio>
+
+    <!-- 本次考试学生排名 -->
+    <student-rank exam-id="{{examId}}"/>
+
+    <!-- 各分数段人数分布 -->
+    <student-spread exam-id="{{examId}}"/>
+    <!-- 各小题得分情况 -->
+    <get-score exam-id="{{examId}}"/>
+
+    <!-- 选择率 -->
+    <choose-rate exam-id="{{examId}}"/>
+
+    <knowladge-lost exam-id="{{examId}}"></knowladge-lost>
+</view>

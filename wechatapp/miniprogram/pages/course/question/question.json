@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "pageOrientation": "landscape",
+  "disableSwipeBack": false,
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "ff-canvas": "@antv/f2-canvas"
+  }
+}

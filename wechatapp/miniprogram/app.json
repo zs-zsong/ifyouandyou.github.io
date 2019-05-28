@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/login/guidePage/guidePage",
+    "pages/exam/confirmMsg/confirmMsg",
+    "pages/score/scoreAnalyze/scoreAnalyze",
+    "pages/wrongTopic/answerList/answerList",
+    "pages/wrongTopic/loseList/loseList",
+    "pages/wrongTopic/addressList/addressList",
+    "pages/home/home",
+    "pages/exam/studentReport/studentReport",
+    "pages/wrongTopic/scoreItem/scoreItem",
+    "pages/login/bindScanner/bindScanner",
+    "pages/marking/marking",
+    "pages/grade/grade",
+    "pages/mycollec/mycollec",
+    "pages/gradePreview/gradePreview",
+    "pages/examManage/examManage",
+    "pages/createExam/createExam",
+    "pages/exam/diffMsg/diffMsg",
+    "pages/course/question/question",
+    "pages/course/cover/cover",
+    "pages/exam/gradePublic/gradePublic",
+    "pages/login/bindPhone/bindPhone",
+    "pages/exam/examGrade/examGrade",
+    "pages/exam/examMsg/examMsg",
+    "pages/login/register/register",
+    "pages/login/complateInfo/complateInfo",
+    "pages/course/practice/practice",
+    "pages/school/school"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#101013",
+    "navigationBarTitleText": "元阅",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

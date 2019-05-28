@@ -1,0 +1,13 @@
+<!--pages/wrongTopic/components/studentList/studentList.wxml-->
+<cover-view class='container' wx:if="{{isShow}}">
+  <cover-view class='content'>
+    <cover-view class='close'>
+       <cover-image class='img' bindtap='close' src="/image/close.png" />
+    </cover-view>
+    <cover-view class='list'>
+      <cover-view class='item' wx:for="{{studentData}}">{{item.studentName}}<text>{{item.studentScore}}</text></cover-view>
+    </cover-view>
+   
+  </cover-view>
+ 
+</cover-view>

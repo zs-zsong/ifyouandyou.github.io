@@ -1,0 +1,21 @@
+<view class='preview'>
+   <view class='h'>学生姓名识别结果确认</view>
+   <view wx:for="{{list}}" wx:key="{{item}}" class='item'>
+      <view class='img'>
+        <image style='width:137rpx;height:82rpx;' src="{{item.url}}"></image>
+      </view>
+      <view class='name'>
+          <view style='display:flex;align-items: center;'>
+            <input placeholder='未识别' style='width:130rpx;text-align:center;' 
+             class="{{item.student_name?'fb':''}}" data-info="{{item.id}}" bindblur="bindKeyInput" value="{{item.student_name}}"/>
+            <image wx:if="{{!item.student_name}}" style='width:32rpx;height:32rpx;' src='../../image/gradePreview/error.png'></image>
+          </view>
+          <view style='color:#818D99;'>{{item.score}}分</view>
+      </view>
+   </view>
+   <view class='btnG'>
+      <view bindtap='analyze' class="{{isaffirm?'btnL':'btnL n_btnL'}}">成绩分析</view>
+      <view bindtap='affirm' class="{{isaffirm?'btnR':'btnR n_btnR'}}">确认学生姓名</view>
+   </view>
+</view>
+

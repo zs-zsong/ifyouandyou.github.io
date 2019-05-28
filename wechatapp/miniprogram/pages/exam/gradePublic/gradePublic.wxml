@@ -1,0 +1,36 @@
+<!--pages/exam/gradePublic/gradePublic.wxml-->
+<view class='wrapper animated fadeIn' hidden='{{show}}'>
+  <view class='school'>元高分实验中学初二语文小测验</view>
+  <view class='school-cls'>
+    <text>初中2018级1班</text>
+    <text>语文</text>
+  </view>
+
+  <view class='img-wrapper'>
+    <view class='header'></view>
+    <image class='bg-title' mode="scaleToFill" src="/image/gradePublic/title.png"></image>
+    <image class='bg-code' mode="scaleToFill" src="/image/logo.png"></image>
+    <view class='text-wrapper'>
+      <view class='info'>有<text>{{num}}</text>名学生在本次考试中表现优异! </view>
+      <view class='info'> 微信扫码查看您孩子的成绩报告</view>
+    </view>
+    
+  </view>
+
+  <view class='submit'  bindtap='sendParent'>
+    <image mode="scaleToFill" src="/image/gradePublic/share.png"></image>转发给家长
+    <!-- <button
+      open-type="share"
+    >
+      warn
+    </button> -->
+  </view>
+  <view class='footer'>请将本页面截图分发给学生家长或点击按钮转发到微信群</view>
+  <view class='time'>{{time}}</view>
+</view>
+
+<view class='layer-wrapper animated fadeIn' wx:if='{{isShowLayer && status!=7}}'>
+  <view class='text-1'>本页面用于通知家长在线查看自己孩子的成绩报告。</view>
+  <view class='text-2'>家长不会看到其他学生的考试情况。</view>
+  <view class='btn' bindtap='closeLayer'>知道啦 !</view>
+</view>

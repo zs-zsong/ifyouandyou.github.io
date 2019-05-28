@@ -1,0 +1,105 @@
+page{
+  height: 100vh;
+  color: #fff;
+}
+.wrapper{
+  width: 100%;
+  height: 100%;
+  background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/image/course/bg.png?sign=9a82aaa2cc8e92c7a431953f992e7204&t=1557393029) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 9rpx;
+  box-sizing: border-box;
+}
+.wrapper .center{
+  height: 226rpx;
+  width: 100%;
+}
+
+
+#backBtn{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left:16rpx;
+}
+#cover{
+  width: 441rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 88rpx;
+  padding-top: 54rpx;
+  box-sizing: border-box;
+  background-color: #FFB71F;
+  border-radius: 0 244rpx 244rpx 0;
+  font-size:30rpx;
+  font-weight:bold;
+  vertical-align: middle;
+  /* display: inline-block; */
+}
+#title{
+  font-size:19rpx;
+  margin-bottom: 11rpx;
+}
+.subject-wrapper {
+  display: flex;
+}
+#subjectName{
+  min-width:85rpx;
+  /* height:45rpx; */
+  margin-right: 6rpx;
+  line-height: 45rpx;
+  padding-right: 16rpx;
+  font-size: 30rpx;
+  background:#FFA917;
+  border-radius:0rpx 23rpx 23rpx 0rpx;
+}
+#gradeAndTime{
+  font-size: 16rpx;
+  margin-top: 50rpx;
+}
+#nextBtn{
+  height: 65rpx;
+  width: 65rpx;
+  position: absolute;
+  right: 27rpx;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+#footbar{
+  height:80rpx;
+  width: 100%;
+  background: -webkit-linear-gradient(bottom,#95999C,#D0D4D800);
+  /* background: -webkit-linear-gradient(left,pink,lightblue,skyblue); linear-gradient(to bottom, #D0D4D800, #95999C); */
+  font-size:14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding:  0 16rpx 16rpx 17rpx;
+  box-sizing: border-box;
+}
+#footbar .tips{
+  font-size: 14rpx;
+}
+#tpBtn{
+  align-items: center;
+  padding: 10rpx 23rpx;
+  min-width: 120rpx;
+  display:inline-block;
+  border:2rpx solid #ffffff;
+  border-radius:8rpx;
+  color: #fff;
+}
+
+#tpBtn text{
+  font-size:17px;
+  color: #fff;
+  padding-left: 22rpx;
+}
+#tpBtn image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 6rpx;
+}

@@ -1,0 +1,173 @@
+.page {
+  background-color: #a7abaf;
+  padding: 8rpx 52rpx;
+  font-size: 15rpx;
+  min-height: 100vh;
+  vertical-align: middle;
+  justify-items: center;
+}
+
+#backBtn {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 10rpx;
+  left: 16rpx;
+  z-index: 99;
+}
+
+.practice-wrapper {
+  background-color: #fff;
+  width: 100%;
+  min-height: 100%;
+  padding: 0 8rpx 11rpx 8rpx;
+  flex-direction: column;
+}
+
+.practice-wrapper .header {
+  /* height: 56rpx; */
+  flex-direction: row;
+  display: flex;
+}
+
+.practice-wrapper .header .item {
+  padding: 16rpx 19rpx;
+  font-size: 14rpx;
+  background-color: #d7dce0;
+  vertical-align: middle;
+  justify-content: center;
+  justify-items: center;
+}
+
+.practice-wrapper .header .active {
+  background-color: #fff;
+}
+
+.practice-wrapper .body {
+  overflow-y: auto;
+  /* margin-top: 23rpx; */
+}
+
+.practice-wrapper .body .title {
+  border: 1rpx solid #eaecef;
+  vertical-align: middle;
+  margin-top: 14rpx;
+  display: flex;
+  align-items: center;
+}
+
+.practice-wrapper .body .item {
+  border: 1rpx solid #eaecef;
+  border-top: none;
+  padding: 8rpx;
+  flex-direction: column;
+  display: flex;
+}
+
+.practice-wrapper .body .title image {
+  height: 5rpx;
+  width: 7rpx;
+  margin: 16rpx 12rpx 17rpx 15rpx;
+  padding: 8rpx;
+}
+
+.body .item .line {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin: 8rpx;
+  /* flex: 1; */
+}
+
+.body .item .line .left {
+  box-sizing: border-box;
+  background:linear-gradient(90deg,rgba(255,170,0,1) 0%,rgba(255,203,82,1) 100%);
+  padding: 12rpx 12rpx;
+  color: #fff;
+  margin-right: 8rpx;
+  width: 80rpx;
+  height: 40rpx;
+  flex: 0 0 80rpx;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.body .answer-pic {
+  width: 100%;
+}
+
+.body .item rich-text image {
+  height: auto;
+}
+
+rich-text {
+  width: 100%;
+  height: auto;
+}
+
+rich-text span {
+  display: inline-block;
+}
+
+rich-text .MathJye  table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  font-size: inherit;
+  _font-size: 100%;
+  font-style: normal;
+  font-weight: normal;
+  border: 0;
+  float: none;
+  display: inline-block;
+  zoom: 0;
+}
+
+.MathJye table {
+  border-collapse: collapse;
+  text-align: center;
+  margin: 2px;
+}
+
+.MathJye table  td, table  th {
+  line-height: 30px;
+  padding: 5px;
+  white-space: normal;
+  word-break: break-all;
+  border: 1px solid #000;
+  vertical-align: middle;
+}
+
+.MathJye table {
+  border-collapse: collapse;
+  text-align: left;
+  margin: 2px;
+  width: 98%;
+}
+
+.MathJye table  td,.MathJye table  th {
+  line-height: 30px;
+  white-space: normal;
+  word-break: break-all;
+  border-width: 0;
+  vertical-align: middle;
+}
+
+.MathJye table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+.MathJye table  td,.MathJye table  th {
+  text-align: left;
+  line-height: 30px;
+  white-space: normal;
+  word-break: break-all;
+  border: none;
+  border-width: 0;
+  vertical-align: middle;
+}

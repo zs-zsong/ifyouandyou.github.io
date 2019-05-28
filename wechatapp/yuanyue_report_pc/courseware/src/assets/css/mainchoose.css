@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+    /* 加载背景图 */
+    /* background: url("../images/background.png") no-repeat; */
+    background: #EBF0F5;
+
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+
+    /* 设置背景颜色，背景图加载过程中会显示背景色 */
+/* 　　　background-color: rgba(41, 50, 39, 1); */
+    height: 100%;
+
+}
+.main{
+    /* width:1200px; */
+    margin:0 auto;
+}
+/* .main .top_{
+    width: 100%;
+    height: 88px;
+    background: #fff;
+    display:flex;
+    justify-content: space-between;
+}
+.main .top_ .title{
+    position: relative;
+}
+
+.main .top_ .title .back{
+    width:213px;
+    height:88px;
+    background:linear-gradient(90deg,rgba(255,170,0,1) 0%,rgba(255,203,82,1) 100%);
+    border-radius:0px 44px 44px 0px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1;
+    background: linear-gradient(to right, #FFAA00 , #FFCB52);
+}
+.main .top_ .title p{
+    position: relative;
+    z-index: 2;
+    color:#fff;
+    font-size: 16px;
+    line-height: 28px;
+    text-indent: 40px;
+    margin:0;
+}
+.main .top_ .title p:first-child{
+    margin-top:15px;
+}
+.main .top_ .title strong{
+    font-size: 22px;  
+}
+.main .top_ .score{
+    display:flex;
+    align-items: center;
+}
+.main .top_ .score .rate,.main .top_ .score .average{
+    margin:0 40px;
+    font-size: 16px;
+}
+.main .top_ .score p{
+    margin:0;
+}
+.main .top_ .score .average .ave_number,.main .top_ .score .rate .rate_number{
+    font-weight: bolder;
+    color:#00bbdd;
+    text-align: center;
+    margin-bottom: 10px;
+} */
+.main .middle_{
+    width:94%;
+    height: 300px;
+    background: #fff;
+    margin:15px auto;
+    padding:25px;
+    box-sizing: border-box;
+}
+.main .middle_ p.title{
+    font-size: 24px;
+    font-weight: bolder;
+    line-height: 36px;
+}
+.main .middle_ p.type{
+    font-size: 24px;
+    line-height: 36px;
+}
+.main .middle_ p.con{
+    font-size: 22px;
+    margin-top:20px;
+}
+.main .footer_{
+    width:94%;
+    height: 300px;
+    background: #fff;
+    margin:15px auto;
+    padding:25px;
+    box-sizing: border-box;
+}
+.el-table th{
+    text-indent: 20px;
+}
+.el-table td{
+    text-indent: 40px;
+}
+.el-table tr:first-child td{
+    color:#5CB3FF;
+}
+.el-table tr:not(:first-child) td{
+    color:#FF6047;
+}
+.el-table__body .el-table__row{
+    cursor: pointer;
+}
+.main .footer_  .grid-content  .panel{
+    position: relative;
+    /* width:336px; */
+    height:240px;
+    background:rgba(255,96,71,0.15);
+    margin-left: 32px;
+    box-sizing: border-box;
+    padding:20px;
+    border-left:4px solid hsla(8, 100%, 64%, 1);
+    border-radius: 4px 0 0 4px;
+}
+.main .footer_  .grid-content  .panel p{
+    
+    width:83px;
+    height:16px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(29,32,35,1);
+    margin:0;
+    /* padding-top:20px; */
+
+}
+.main .footer_  .grid-content  .panel .name{
+    margin-top:20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.main .footer_  .grid-content  .panel .name span{
+    width:33.3333%;
+    margin-bottom: 20px;
+}
+.main .footer_  .grid-content  .panel .triangle{
+    width:0;
+    height:0;
+    border-top:6px solid transparent;
+    border-bottom:6px solid transparent;
+    border-right:6px solid hsla(8, 100%, 64%, 1);
+    position: absolute;
+    left:-10px;
+    top:50%;
+    transform: translate(0px,-3px);
+
+}

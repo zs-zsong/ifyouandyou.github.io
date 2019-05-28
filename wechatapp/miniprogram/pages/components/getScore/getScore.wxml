@@ -1,0 +1,49 @@
+<!-- 考试趋势 -->
+<view  class='chart-wrapper'>
+
+  <view class='overview'>
+    <view class='title'>
+      <image mode="scaleToFill"  src="/image/cuotiji/xtdf.png"></image>小题得分
+    </view>
+  </view>
+  <!-- <view class="ratio-title">各小题得分情况</view>
+  <view class="ratio-tap">
+    <image style="height: 24rpx;width: 24rpx;" src="../../../image/score/question.png" mode="aspectFit" />
+    <text bindtap='showSet'>三率设置</text>
+  </view> -->
+  <!-- <canvas
+    id="areaScore"
+    onTouchStart="touchStart"
+    onTouchMove="touchMove"
+    onTouchEnd="touchEnd"
+    width="{{width}}" height="{{height}}"
+  /> -->
+  <view class="container-column">
+    <ff-canvas id="column-dom-score" canvas-id="column-score" opts="{{ opts }}"></ff-canvas>
+  </view>
+
+
+  <view class='score-info'>
+    <view class='info'> <view></view>{{studentInfo.question}}</view>
+    <view class='score-info-wrapper'>
+      <view class='score-item'>
+        <view>满分分值</view>
+        <view>{{studentInfo.fullMark}}</view>
+      </view>
+      <view class='score-item'>
+        <view>平均得分</view>
+        <view>{{studentInfo.avg}}</view>
+      </view>
+      <view class='score-item'>
+        <view>最高得分</view>
+        <view>{{studentInfo.avg}}</view>
+      </view>
+      <view class='score-item' data-info="{{studentInfo}}" bindtap='lookStudent'>
+        <view>答错人数</view>
+        <view class='lose-score'>{{studentInfo.answerCount}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<student-list is-show="{{isShow}}"  exam-id="{{examId}}"  question-id="{{questionId}}"></student-list>

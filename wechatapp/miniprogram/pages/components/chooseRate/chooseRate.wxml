@@ -1,0 +1,43 @@
+<!--pages/components/chooseRate/chooseRate.wxml-->
+<view class='column-wrapper'>
+
+  <!-- <view class='exam-info'>客观题选择率</view>
+  <view class='header'>
+    <view class='select-wrapper'>
+      <view style='font-size:32rpx; margin-right:20rpx;'>题号</view>
+      <select prop-array="{{selectArray}}" bindmyget="myGet"/>
+    </view>
+  </view> -->
+  <view class='overview'>
+    <view class='title'>
+      <image mode="scaleToFill"  src="/image/cuotiji/kgtxzl.png"></image>客观题选择率
+    </view>
+  </view>
+
+  <view class='header'>
+    <view class='left' bindtap='toLeft'>
+      <image mode="scaleToFill"  src="/image/cuotiji/to_left.png"></image>
+    </view>
+    <view class='center'>{{contentArr[headIndex].title}}</view>
+    <view class='right' bindtap='toRight'>
+      <image  mode="scaleToFill"  src="/image/cuotiji/to_left.png"></image>
+    </view>
+  </view>
+
+  <view class='container'>
+    <view class='left'>
+      <view class="container-column">
+        <ff-canvas id="column-dom-column" canvas-id="column-column" opts="{{ opts }}"></ff-canvas>
+      </view>
+    </view>
+    <view class='right'>
+      <view class='text'>选择率</view>
+      <view class='item {{item.name==selectIndex?"active":""}}' wx:for="{{showData}}" wx:key="{{index}}">
+        <view>{{item.name}}</view>
+        <view>{{item.percent}}%</view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

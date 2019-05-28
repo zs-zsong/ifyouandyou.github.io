@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "试卷信息校验 1/2",
+  "usingComponents": {
+    "treeAnswer": "../../components/treeAnswer/treeAnswer",
+    "layer": "./layer/layer"
+  }
+}

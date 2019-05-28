@@ -1,0 +1,15 @@
+{
+  "component": true,
+  "navigationBarTitleText": "成绩分析",
+  "usingComponents": {
+    "knowladge-lost": "/pages/wrongTopic/components/knowladgeLost/knowladgeLost",
+    "column": "../../components/column/column",
+    "exam-ratio": "../../components/examRatio/examRatio",
+    "get-score": "../../components/getScore/getScore",
+    "student-rank": "../../components/studentRank/studentRank",
+    "student-spread": "../../components/studentSpread/studentSpread",
+    "student-score": "../../components/studentScore/studentScore",
+    "grade-chart": "../../components/gradeChart/gradeChart",
+    "choose-rate": "../../components/chooseRate/chooseRate"
+  }
+}

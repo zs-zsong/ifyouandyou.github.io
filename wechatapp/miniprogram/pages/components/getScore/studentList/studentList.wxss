@@ -1,0 +1,57 @@
+/* pages/wrongTopic/components/studentList/studentList.wxss */
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    background:rgba(29,32,35,.64);
+}
+.content {
+    width:750rpx;
+    /* height:637rpx; */
+    position: absolute;
+    bottom: 20rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background:rgba(255,255,255,1);
+    border-radius:24rpx;
+}
+.content .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background:rgba(255,255,255,1);
+    border-radius:0 0 24rpx 24rpx;
+    padding: 12rpx 0 79rpx;
+    /* background: url(https://7733-w3school-baff28-1259125289.tcb.qcloud.la/image/student_bg.png?sign=f6f9d8cdde51719c7af9690c87f80d0e&t=1558442325) no-repeat;
+    background-size: cover; */
+}
+.content .list .item{
+    flex: 0 0 30%;
+    font-size:32rpx;
+    margin-top: 39rpx;
+    text-align: center;
+    color:rgba(29,32,35,1);
+}
+.content .list .item text{
+    font-size:32rpx;
+    color:rgba(129,141,153,1);
+    margin-left: 7rpx;
+}
+.content .close  {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  background:rgba(255,255,255,1);
+  border-radius:24rpx 24rpx 0 0;
+  padding-right: 32rpx;
+  padding-top: 32rpx;
+}
+.content .close .img{
+    width:24rpx;
+    height:24rpx;
+}

@@ -1,0 +1,19 @@
+<view class="components">
+  <view class="_title">本次考试成绩如何</view>
+  <view class="_nav">
+    <view class="_tab">本班级</view>
+    <view class="_tab _active">本年级</view>
+  </view>
+  <view class="_progress">
+    <view class="_options" wx:for="{{score}}" wx:key="{{index}}">
+      <view class="_text {{item.text=='孩子得分'?'_bold':''}}">{{item.text}}</view>
+      <view class="_bar">
+        <progress percent="{{(item.score/150)*100}}" active="true" activeColor="{{item.color}}" backgroundColor="#f7f7f7" stroke-width="14"/>
+        <view class="_bar-text">{{item.score}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="_allscore">
+    <view class="_tit">总分<text class="_score">127</text>分，击败了<text class="_greade">本年级</text><text class="_score">96%</text>的同学</view>
+  </view>
+</view>

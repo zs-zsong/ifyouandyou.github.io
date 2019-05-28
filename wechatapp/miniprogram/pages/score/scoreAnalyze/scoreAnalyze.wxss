@@ -1,0 +1,197 @@
+/* @import '../../components/column/column.acss';
+@import '../../components/examRatio/examRatio.acss'; */
+.container {
+  min-height: calc(100vh - 88rpx);
+  padding: 
+}
+.chart-wrapper {
+  width: 690rpx;
+  margin: 0 auto 20rpx;
+  padding-top: 40rpx;
+  background-color: #fff;
+}
+.header {
+  height: 104rpx;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.noBorderLeft {
+  border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.noBorderRight {
+  border-right: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.header .content{
+  flex: 1;
+  height:c;
+  line-height: 72rpx;
+  text-align: center;
+  box-sizing:border-box; 
+  padding:2rpx; 
+  border-radius:6rpx; 
+  color:rgba(255,122,0,1);
+  border:2rpx solid rgba(225,227,230,1);
+}
+.header .active{
+  background-image:-webkit-linear-gradient(0deg, rgba(255,122,0,1), rgba(255,170,0,1));
+}
+.header .active view{
+  width:100%; 
+  height:100%; 
+  border-radius:6rpx; 
+  background:#fff;
+}
+/* .header .active view text{
+  background: linear-gradient(to right, rgba(255,122,0,1), rgba(255,170,0,1));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 32rpx;
+} */
+.header .content view text{
+  color: #A1A2A6;
+  font-size: 32rpx;
+}
+.header .active view text{
+  background: linear-gradient(to right, rgba(255,122,0,1), rgba(255,170,0,1));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 32rpx;
+}
+
+.class-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  margin: 24rpx 0 32rpx;
+} 
+
+.class-wrapper .section {
+  flex: 1;
+}
+.class-wrapper .section:nth-child(2) {
+  margin-left: 20rpx;
+}
+.class-wrapper .section .picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  height: 68rpx;
+   padding: 0 20rpx 0 29rpx;
+  box-sizing: border-box;
+  border-radius: 6rpx;
+}
+.container {
+  padding: 23rpx 32rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #EBF0F5;
+}
+.container .score-title{
+  color: #19191A;
+  font-size: 32rpx;
+  text-align: center;
+}
+.container .number{
+  color: #A1A2A6;
+  font-size: 28rpx;
+  margin-top: 23rpx;
+  text-align: center;
+}
+.container .content{
+  display: flex;
+  height: 450rpx;
+  justify-content: center;
+  align-items: flex-end;
+}
+.container .content .item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+}
+.container .content .item:nth-child(2){
+  margin-left: 110rpx;
+}
+.container .content .item text:nth-of-type(1){
+  margin-bottom: 16rpx;
+}
+.container .content .item text:nth-of-type(2){
+  margin-top: 23rpx;
+  color: #A1A2A6;
+}
+.container .content .item .blue {
+  background:rgba(51,170,255,1);
+} 
+.container .content .item .orange {
+  background:linear-gradient(0deg,rgba(255,122,0,1) 0%,rgba(255,170,0,1) 100%);
+} 
+.container .content .item .color-con {
+  width:64rpx;
+  height:330rpx;
+  transition: height ease-in .5s;
+}
+
+.student-con {
+  padding-top: 10rpx !important;
+}
+.student-con input{
+  background-color: #e7e7e7;
+  border-radius: 25rpx;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+.student-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.student-container .item{
+  flex: 0 0 calc(100% / 3);
+  text-align: center;
+  color: #3b424c;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ebebeb;
+  border-right: 1rpx solid #ebebeb;
+}
+.student-container .item:nth-of-type(3n+1){
+  border-left: 1rpx solid #ebebeb;
+}
+.student-container .item:nth-of-type(1),.student-container .item:nth-of-type(2),.student-container .item:nth-of-type(3){
+  border-top: 1rpx solid #ebebeb;
+}
+
+.exam-list {
+  height:88rpx;
+  padding: 0 32rpx 0 29rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:rgba(255,255,255,1);
+}
+.exam-list view{
+  font-size:34rpx;
+  font-weight:bold;
+  color:rgba(29,32,35,1);
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.exam-list image{
+  width:32rpx;
+  height:28rpx;
+}
